@@ -30,32 +30,6 @@
 // Define(s)
 //-------------------------------------------------------------------------------------------------
 
-// in original code
-/**
- * Timer 1
- * Outputs 10 KHz on D11
- * Used for Variable Spindle PWM
- **/
-/**
- * Timer 2
- * Used for Encoder
- **/
-/**
- * Timer 3
- * Used for Input capture
- **/
-/**
- * Timer 4
- * Used for Encoder
- **/
-/**
- * Timer 9
- * Base clock: 24 MHz
- * Used for Stepper Interrupt
- * On CC1, Main Stepper Interrupt is called
- * On Update, Stepper Port Reset is called
- **/
-
 //-------------------------------------------------------------------------------------------------
 //
 //          IO_CFG_DEF(X_IO_CFG)
@@ -314,25 +288,13 @@
 //
 //-------------------------------------------------------------------------------------------------
 
-#define IO_IRQ_DEF(X_IO_IRQ) \
+//#define IO_IRQ_DEF(X_IO_IRQ)
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------*/\
 /*         Enum ID                 Pin ID              EXTI Pin Source  Priority    Trigger                             CallBack                Argument    */\
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------*/\
-  X_IO_IRQ(IO_ISR_LIMIT_X1,        IO_LIMIT_X1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_Y1,        IO_LIMIT_Y1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_Z1,        IO_LIMIT_Z1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_A1,        IO_LIMIT_A1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_B1,        IO_LIMIT_B1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_C1,        IO_LIMIT_C1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_X2,        IO_LIMIT_X1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_Y2,        IO_LIMIT_Y1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_Z2,        IO_LIMIT_Z1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_A2,        IO_LIMIT_A1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_B2,        IO_LIMIT_B1,        EXTI15_10_IRQn,  6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
-  X_IO_IRQ(IO_ISR_LIMIT_C2,        IO_LIMIT_C1,        EXTI9_5_IRQn,    6,          IO_EXTI_TRIGGER_RISING_FALLING,     nullptr,                nullptr)      \
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------*/\
 
-// IO_LIMIT_A is a fake limit switch
 
+#define IO_ETH_EXT_LED      IO_NOT_DEFINED
 
 //-------------------------------------------------------------------------------------------------

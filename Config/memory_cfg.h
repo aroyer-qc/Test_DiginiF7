@@ -52,7 +52,8 @@
     X_MEM_BLOCK( MEM_BLOCK_1,        Block_1,            AllocBlock_1,           64,            128U             )\
     X_MEM_BLOCK( MEM_BLOCK_2,        Block_2,            AllocBlock_2,           64,            256U             )\
     X_MEM_BLOCK( MEM_BLOCK_3,        Block_3,            AllocBlock_3,           8,             1024U            )\
-    X_MEM_BLOCK( MEM_BLOCK_4,        Block_4,            AllocBlock_4,           2,             2048U            )\
+    X_MEM_BLOCK( MEM_BLOCK_4,        Block_4,            AllocBlock_4,           20,            1536U            )\
+    X_MEM_BLOCK( MEM_BLOCK_5,        Block_5,            AllocBlock_5,           4,             5840U            )\
 
 //-------------------------------------------------------------------------------------------------
 

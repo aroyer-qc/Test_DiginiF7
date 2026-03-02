@@ -30,8 +30,6 @@
 //  Typedef(s)
 //-------------------------------------------------------------------------------------------------
 
-// Example.. for GRBL.. check if I can use this for GRBL code
-
 enum PWM_ChannelID_e
 {
 	PWM_STRIP_RED,

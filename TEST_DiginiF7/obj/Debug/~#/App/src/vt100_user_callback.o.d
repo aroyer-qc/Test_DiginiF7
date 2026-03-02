@@ -27,7 +27,6 @@ obj\debug\~\#\app\src\vt100_user_callback.o.o: \
  ..\Module\Digini/././Digini/inc/lib_assert.h \
  ..\Module\Digini/././Database/inc/lib_class_database.h \
  ..\Module\Digini/./Database/inc/lib_database_wrapper.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_dbase.h \
  ..\Module\Digini/./Database/inc/lib_class_eeprom_dbase.h \
  ..\Module\Digini/./Peripheral/inc/interface/lib_class_memory_driver_interface.h \
  ..\Module\Digini/./Database/inc/lib_class_qspi_dbase.h \
@@ -61,6 +60,33 @@ obj\debug\~\#\app\src\vt100_user_callback.o.o: \
  ..\Module\Digini/././Peripheral/inc/port/lib_class_dac.h \
  ..\config/dac_cfg.h \
  ..\Module\Digini/./Peripheral/inc/port/STM32F7xx/lib_class_STM32F7_dac.h \
+ ..\Module\Digini/././NanoIP/inc/lib_ethernet_helper.h \
+ ..\Module\Digini/././NanoIP/inc/lib_ethernet_enum.h \
+ ..\Module\Digini/././NanoIP/inc/Types/IP_types.h \
+ ..\Module\Digini/././NanoIP/inc/Types/ETH_driver_types.h \
+ ..\Module\Digini/././NanoIP/inc/Types/IP_frame_types.h \
+ ..\Module\Digini/././NanoIP/inc/Types/socket_types.h \
+ ..\Module\Digini/././NanoIP/inc/Interface/TCP_interface.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_ethernet_if.h \
+ ..\Module\Digini/././NanoIP/inc/Interface/ETH_link_driver_interface.h \
+ ..\Module\Digini/././NanoIP/inc/Interface/ETH_MAC_driver_interface.h \
+ ..\Module\Digini/././NanoIP/inc/Interface/ETH_PHY_driver_interface.h \
+ ..\Module\Digini/././NanoIP/inc/driver/Adapters/ETH_Adapter.h \
+ ..\Module\Digini/././NanoIP/inc/driver/Adapters/ETH_STM32_Adapter.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_socket.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_arp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_dhcp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_dns.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_icmp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_mqtt.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_sntp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_tcp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_udp.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_IP_Manager.h \
+ ..\Module\Digini/././NanoIP/inc/lib_class_context.h \
+ ..\Module\Digini/././Peripheral/inc/port/lib_class_eth.h \
+ ..\Module\Digini/./Peripheral/inc/port/STM32F7xx/lib_class_STM32F7_eth.h \
+ ..\Module\Digini/././NanoIP/inc/driver/MAC/lib_class_PHY_LAN8742A.h \
  ..\Module\Digini/././Peripheral/inc/port/lib_class_i2c.h \
  ..\config/i2c_cfg.h \
  ..\Module\Digini/./Peripheral/inc/port/STM32F7xx/lib_class_STM32F7_i2c.h \
@@ -92,30 +118,4 @@ obj\debug\~\#\app\src\vt100_user_callback.o.o: \
  ..\Module\Digini/./Peripheral/inc/FatFs/diskio.h \
  ..\Module\Digini/././Peripheral/inc/FatFs/digini_diskio.h \
  ..\config/diskio_drv_cfg.h ..\Module\Digini/././Grafx/inc/lib_grafx.h \
- ..\config/widget_cfg.h ..\config/color_cfg.h ..\config/grafx_cfg.h \
- ..\Module\Digini/./Utility/inc/lib_compression.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_define.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_font.h ..\config/font_cfg.lst \
- ..\config/static_skin_image.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_skin.h ..\config/Skin_cfg.lst \
- ..\config/grafx_display_layer_cfg.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_enum_x_macro.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_link.h ..\config/menu_link_cfg.h \
- ..\config/menu_link_list_cfg.h ..\config/menu_cfg.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_enum.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_typedef.h \
- ..\Module\Digini/./Grafx/inc/widget/lib_class_widget.h \
- ..\Module\Digini/./Grafx/inc/widget/lib_widget_variable.h \
- ..\Module\Digini/./Grafx/inc/color/lib_grafx_color.h \
- ..\Module\Digini/./Grafx/inc/lib_grafx_const.h \
- ..\Module\Digini/./Grafx/inc/layer/lib_class_layer.h \
- ..\Module\Digini/./Grafx/inc/font/lib_class_font.h \
- ..\Module\Digini/./Grafx/inc/task/lib_gui_task.h ..\config/widget_var.h \
- ..\App\inc/bsp.h ..\Module\Digini/./Grafx/inc/service/lib_service.h \
- ..\App\inc/service.h ..\Module\Digini/./Grafx/inc/task/lib_skin_task.h \
- ..\Module\Digini/./Grafx/inc/driver/generic/lib_Grafx_GenDriver.h \
- ..\Module/./Digini/Grafx/inc/driver/generic/lib_STM32xxx_lcd_480x272\ -\ RK043FN48H.h \
- ..\Module\Digini/./Peripheral/inc/interface/lib_class_pointing_device_interface.h \
- ..\Module/./Digini/Peripheral/inc/device/lib_class_i2c_FT5336.h \
- ..\Module\Digini/./Grafx/inc/task/lib_pdi_task.h \
  ..\App\inc/task_network.h

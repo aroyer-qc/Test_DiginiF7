@@ -151,27 +151,11 @@ static ServiceReturn_t* SERV_INFO(ServiceEvent_e* pServiceState, uint16_t SubSer
 //-------------------------------------------------------------------------------------------------
 static ServiceReturn_t* SERV_INPU(ServiceEvent_e* pServiceState, uint16_t SubService)
 {
-    uint16_t         State;
+    uint16_t         State = 0;
     ServiceReturn_t* pService = nullptr;
 
     switch(SubService)
     {
-        case 0:  State = GetIO_State(IO_LIMIT_X1);       break;
-        case 1:  State = GetIO_State(IO_LIMIT_Y1);       break;
-        case 2:  State = GetIO_State(IO_LIMIT_Z1);       break;
-        case 3:  State = GetIO_State(IO_LIMIT_A1);       break;
-        case 4:  State = GetIO_State(IO_LIMIT_B1);       break;
-        case 5:  State = GetIO_State(IO_LIMIT_C1);       break;
-        case 6:  State = GetIO_State(IO_LIMIT_X1);       break;
-        case 7:  State = GetIO_State(IO_LIMIT_Y1);       break;
-        case 8:  State = GetIO_State(IO_LIMIT_Z1);       break;
-        case 9:  State = GetIO_State(IO_LIMIT_A1);       break;
-        case 10: State = GetIO_State(IO_LIMIT_B1);       break;
-        case 11: State = GetIO_State(IO_LIMIT_C1);       break;
-        case 12: State = GetIO_State(IO_CONTROL_RESET);  break;
-        case 13: State = GetIO_State(IO_CONTROL_START);  break;
-        case 14: State = GetIO_State(IO_CONTROL_FEED);   break;
-        case 15: State = GetIO_State(IO_PROBE);          break;
     }
 
     if(*pServiceState != SERVICE_FINALIZE)
@@ -182,47 +166,6 @@ static ServiceReturn_t* SERV_INPU(ServiceEvent_e* pServiceState, uint16_t SubSer
             pService->IndexState = State;
             *pServiceState = SERVICE_REFRESH;
         }
-    }
-
-    return pService;
-}
-
-//-------------------------------------------------------------------------------------------------
-//
-//  Name:           SERV_MHUB
-//
-//  Parameter(s):   ServiceEvent_e*  pServiceState
-//  Return:         ServiceReturn_t
-//
-//  Description:    This is a HUB to redirect the GUI to the right page to display
-//
-//-------------------------------------------------------------------------------------------------
-static ServiceReturn_t* SERV_MHUB(ServiceEvent_e* pServiceState)
-{
-    ServiceReturn_t* pService = nullptr;
-
-    pService = GetServiceStruct(SERVICE_RETURN);
-    *pServiceState = SERVICE_REFRESH;
-
-// TODO (Alain#1#) add check for page type Terminal or not
-// TODO (Alain#1#) instead of GRBL_MACHINE_USE_AXIS_XZ use machine select config
-
-    if((Machine & MACHINE_XYZ) == MACHINE_XY)
-    {
-        ((ServiceReturn_t*)pService)->IndexState = 0;
-    }
-    else if((Machine & MACHINE_XYZ) == MACHINE_ZX)
-    {
-        ((ServiceReturn_t*)pService)->IndexState = 1;
-    }
-    else if((Machine & MACHINE_XYZ) == MACHINE_XYZ)
-    {
-        ((ServiceReturn_t*)pService)->IndexState = 2;
-    }
-
-    if(IsTerminalEnabled == true)
-    {
-        ((ServiceReturn_t*)pService)->IndexState += 3;
     }
 
     return pService;

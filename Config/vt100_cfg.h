@@ -53,50 +53,56 @@
 // in fact I should move every configuration for menu item and menu built-in Digini to the digini itself
 
 #define VT100_USER_LABEL_LANGUAGE_DEF(X_VT100_USER_LBL_CFG) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_MENU_TITLE,                       "GRBL Configuration Menu",                                  "Menu de Configuration GRBL"                                 ) \
+    X_VT100_USER_LBL_CFG( VT100_LBL_MENU_TITLE,                       "Test F7 Menu",                                             "Menu de Test F7"                                            ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_TEST,                             "Test",                                                     "Test"                                                       ) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_MISC_STAT,                        "Misc. Statistic",                                          "Statistiques Divers"                                        ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_MISCELLEANEOUS,                   "Miscelleaneous",                                           "Divers"                                                     ) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_TEST_1,                           "Test 1",                                                   "Test 1"                                                     ) \
-\
     X_VT100_USER_LBL_CFG( VT100_LBL_SYSTEM_SETTING,                   "System Settings",                                          "Configuration Syst\x8ame"                                   ) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_MISC_CONFIG_MENU,                 "Miscellaneous Configuration Menu",                         "Menu de Configuration Divers"                               ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_SYSTEM_SETTING_MENU,              "System Settings Menu",                                     "Menu Configuration Syst\x8ame"                              ) \
+    X_VT100_USER_LBL_CFG( VT100_LBL_MISC_CONFIG_MENU,                 "Miscellaneous Configuration Menu",                         "Menu de Configuration Divers"                               ) \
 
-// Note(s) ther is standard definition in the VT100
+
 // Define the compare name (I did not find a way to get rid of those definition by the use of advanced macro)
-#define COMPARE_MenuRedirection(x)      x
-#define COMPARE_MenuBoot(x)    		    x
-
+// example #define COMPARE_MenuSystemSetting(x)    x
 
 // Define here all the menu and sub menu you will use in the VT100 terminal
-#define VT100_USER_MENU_DEF(ENTRY)  \
-    ENTRY(MenuRedirection    )  \
-    ENTRY(MenuBoot           )  \
+#define VT100_USER_MENU_DEF(ENTRY) \
+//Example    ENTRY(MenuSystemSetting  )
 
 // Define here all the callback you will use in the VT100 terminal
-#define VT100_USER_CALLBACK(ENTRY)       \
-    ENTRY(CALLBACK_MenuRedirection    )  \
-    ENTRY(CALLBACK_InputReading       )
-//   ENTRY(CALLBACK_TimeDateCfg        )
+#define VT100_USER_CALLBACK(ENTRY) \
+// example   ENTRY(CALLBACK_SystemSetting )
 
-// Here you define how you will navigate in the menu tree and action associated with them                             1st item of a menu
-//                                                     Menu   Member Of          Item ID                              CALLBACK for refresh                     Navigate to this menu on <ESC>    Label ID
-//                                                                               on first if CALLBACK_None there is   all other. Navigate to this menu
-//                                                                               no refresh. All other items are
-//                                                                               items processing services.
-
+// Here you define how you will navigate in the menu tree and action associated with them                            1st item of a menu                       1st item
+//                                                  Menu   Member Of            Item ID                              CALLBACK for refresh                     Navigate to this menu on <ESC>    Label ID
+//                                                                              on first if CALLBACK_None there is
+//                                                                              no refresh. All other items are      all other. Navigate to this menu         all other. Navigate to the menu
+//                                                                              items processing services.
 #define VT100_USER_MENU_TREE_DEF(ENTRY, MENU) \
 \
-                                                ENTRY  (MENU,  MenuRedirection,   ID_REDIRECTION,                      CALLBACK_MenuRedirection,                VT100_MENU_NONE,                  INVALID_LABEL                                   )  \
+
+// ------------------------------------------------------------------------------------------------------------------
+
+#define NOT_USED\
+                                 ENTRY  (MENU,  MenuMain,          ID_TEST_MENU,                       CALLBACK_None,                         MenuTest1,                        VT100_LBL_TEST                                  )  \
+                                 ENTRY  (MENU,  MenuMain,          ID_SETTING_MENU,                    CALLBACK_None,                         MenuSetting,                      VT100_LBL_SYSTEM_SETTING                        )  \
+                                 ENTRY  (MENU,  MenuBoot,          ID_TEST_MENU,                       CALLBACK_None,                         MenuTest1,                        VT100_LBL_TEST                                  )  \
+                                 ENTRY  (MENU,  MenuBoot,          ID_SETTING_MENU,                    CALLBACK_None,                         MenuSetting,                      VT100_LBL_SYSTEM_SETTING                        )  \
 \
-                                                ENTRY  (MENU,  MenuBoot,          ID_MAIN_TITLE,                       CALLBACK_None,                           VT100_MENU_NONE,                  VT100_LBL_MAIN_MENU                             )  \
-    IF_USE( LABEL_USE_PRODUCT_INFO,             ENTRY  (MENU,  MenuBoot,          ID_INFO_DISPLAY,                     CALLBACK_None,                           MenuInfo,                         VT100_LBL_SYSTEM_INFO                           ) )\
-    IF_USE( DIGINI_USE_STACKTISTIC,             ENTRY  (MENU,  MenuBoot,          ID_STACK_DISPLAY,                    CALLBACK_None,                           MenuStackUsage,                   VT100_LBL_STACKTISTIC                           ) )\
-    IF_USE( DIGINI_USE_DEBUG_IN_CONSOLE,        ENTRY  (MENU,  MenuBoot,          ID_DEBUG_MENU,                       CALLBACK_None,                           MenuDebug,                        VT100_LBL_DEBUG                                 ) )\
-    IF_USE( DIGINI_USE_STATIC_MEMORY_ALLOC,     ENTRY  (MENU,  MenuBoot,          ID_MEMORY_POOL_MENU,                 CALLBACK_None,                           MenuMemoryPool,                   VT100_LBL_MEMORY_POOL_STAT                      ) )\
-    IF_USE( DIGINI_USE_ETHERNET,                ENTRY  (MENU,  MenuBoot,          ID_NETWORK_INFO,                     CALLBACK_None,                           MenuNetwork,                      LBL_NETWORK_INFO                                ) )\
-    IF_USE( DIGINI_DEBUG_SDCARD_INFO_ON_VT100,  ENTRY  (MENU,  MenuBoot,          ID_SD_CARD_MENU,                     CALLBACK_None,                           MenuSD_Card,                      LBL_SD_CARD_INFORMATION                         ) )\
-                                                ENTRY  (MENU,  MenuBoot,          ID_MISC_SETTING,                     CALLBACK_None,                           MenuSystemSetting,                VT100_LBL_SYSTEM_SETTING                        )  \
+                                 ENTRY  (MENU,  MenuSetMisc,       ID_MISC_TITLE,                      CALLBACK_None,                         MenuSetting,                      VT100_LBL_MISC_CONFIG_MENU                      ) \
+                                 ENTRY  (MENU,  MenuSetMisc,       ID_MISC_OPT1,                       CALLBACK_MiscCfg,                      MenuSetMisc,                      VT100_LBL_BLANK                                 ) \
+                                 ENTRY  (MENU,  MenuSetMisc,       ID_MISC_OPT2,                       CALLBACK_MiscCfg,                      MenuSetMisc,                      VT100_LBL_BLANK                                 ) \
+                                 ENTRY  (MENU,  MenuSetMisc,       ID_MISC_SERIAL_NUMBER,              CALLBACK_MiscCfg,                      MenuSetMisc,                      VT100_LBL_SERIAL_NUMBER_SETTING                 ) \
+                                 ENTRY  (MENU,  MenuSetMisc,       ID_MISC_SAVE,                       CALLBACK_MiscCfg,                      MenuSetMisc,                      VT100_LBL_BLANK                                 ) \
+\
+		                         ENTRY  (MENU,  MenuSettingTime,   ID_TIME_DATE_TITLE,                 CALLBACK_None,                         MenuSetting,                      VT100_LBL_TIME_AND_DATE_CONFIG                  ) \
+                                 ENTRY  (MENU,  MenuSettingTime,   ID_HOUR,                            CALLBACK_TimeDateCfg,                  MenuSettingTime,                  LBL_MINUTE                                      ) \
+                                 ENTRY  (MENU,  MenuSettingTime,   ID_SECOND,                          CALLBACK_TimeDateCfg,                  MenuSettingTime,                  LBL_SECOND                                      ) \
+                                 ENTRY  (MENU,  MenuSettingTime,   ID_DAY,                             CALLBACK_TimeDateCfg,                  MenuSettingTime,                  LBL_MONTH                                       ) \
+                                 ENTRY  (MENU,  MenuSettingTime,   ID_YEAR,                            CALLBACK_TimeDateCfg,                  MenuSettingTime,                  LBL_YEAR                                        ) \
+                                 ENTRY  (MENU,  MenuSettingTime,   ID_TIME_DATE_SAVE,                  CALLBACK_TimeDateCfg,                  MenuSettingTime,                  VT100_LBL_BLANK                                 ) \
+\
+                                 ENTRY  (MENU,  MenuSetting,       ID_SETTING_TITLE,                   CALLBACK_None,                         MenuMain,                         VT100_LBL_SYSTEM_SETTING_MENU                   ) \
+                                 ENTRY  (MENU,  MenuSetting,       ID_MISC_MENU,                       CALLBACK_None,                         MenuSetMisc,                      VT100_LBL_MISCELLEANEOUS                        ) \
+                                 ENTRY  (MENU,  MenuSetting,       ID_TIME_MENU,                       CALLBACK_None,                         MenuSettingTime,                  VT100_LBL_TIME_AND_DATE                         ) \
 
 // ------------------------------------------------------------------------------------------------------------------
