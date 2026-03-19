@@ -2,6 +2,8 @@
 *.eds
 *.depend
 *.bak
+*.o
+*.d
 TEST_DiginiF7/bin/
 TEST_DiginiF7/obj/
 module
