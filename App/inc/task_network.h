@@ -50,6 +50,8 @@
 #define TASK_NETWORK_STACK_SIZE              128
 #define TASK_NETWORK_PRIO                    4
 
+#define MQTT_Q_TEST_BUFFER                   4
+
 //-------------------------------------------------------------------------------------------------
 // Class definition(s)
 //-------------------------------------------------------------------------------------------------
@@ -98,14 +100,17 @@ class ClassNetwork
         uint8_t                         m_SOAP_Server_2[IP_MAX_URL_SIZE];
       #endif
 
-      #if (IP_USE_TCP_SERVER == DEF_ENABLED) || (IP_USE_TCP_CLIENT == DEF_ENABLED)
-        TCP_ManagerSystem               m_TCP;
-      #endif
-
       // nOS_Thread                     m_WebServerHandle;
       //nOS_Stack                       m_WebServerStack            [TASK_WEBSERVER_STACK_SIZE]     NOS_STACK_LOCATION;
         nOS_Thread                      m_Handle;
         nOS_Stack                       m_Stack                     [TASK_NETWORK_STACK_SIZE];
+
+        nOS_Queue                       m_MQTT_TestQ_1;
+        nOS_Queue                       m_MQTT_TestQ_2;
+        nOS_Queue                       m_MQTT_TestQ_3;
+        MQTT_Message_t*                 m_pQ_Buffer1[MQTT_Q_TEST_BUFFER];
+        MQTT_Message_t*                 m_pQ_Buffer2[MQTT_Q_TEST_BUFFER];
+        MQTT_Message_t*                 m_pQ_Buffer3[MQTT_Q_TEST_BUFFER];
 
         class NetworkContext            m_NetworkContext;
 };

@@ -45,6 +45,8 @@
 #define IP_DBG_DHCP                             DEF_DISABLED
 #define IP_DBG_DNS								DEF_ENABLED
 #define IP_DBG_ARP								DEF_ENABLED
+#define IP_DBG_TCP 								DEF_DISABLED
+#define IP_DBG_MQTT								DEF_ENABLED
 #define IP_DBG_ARP_RETRY_MSG					DEF_ENABLED
 
 //-------------------------------------------------------------------------------------------------
@@ -63,13 +65,14 @@
 // Protocol supported by the application
 
 #define IP_USE_DHCP							    DEF_ENABLED           // Need UDP
-#define IP_USE_DNS							    DEF_ENABLED           // Need UDP
+#define IP_USE_DNS							    DEF_DISABLED           // Need UDP
+#define IP_USE_HTTP                             DEF_DISABLED
 #define IP_USE_ICMP							    DEF_ENABLED
-#define IP_USE_MQTT 						    DEF_DISABLED
+#define IP_USE_MQTT 						    DEF_ENABLED
 #define IP_USE_NTP							    DEF_DISABLED
 #define IP_USE_SNTP							    DEF_DISABLED
 #define IP_USE_SOAP 						    DEF_DISABLED
-#define IP_USE_TCP_CLIENT                       DEF_DISABLED
+#define IP_USE_TCP_CLIENT                       DEF_ENABLED
 #define IP_USE_TCP_SERVER                       DEF_DISABLED
 #define IP_USE_UDP 							    DEF_ENABLED
 #define IP_USE_RAW                              DEF_DISABLED
@@ -85,6 +88,20 @@
 
 #define IP_ARP_TIME_OUT							120
 #define IP_ARP_TABLE_SIZE						8                           // how many address in the ARP table
+
+//---------------------------------------------------------
+// MQTT Configuration
+
+#define MQTT_BROKER_IP                          IP_ADDRESS(192,168,1,186)
+#define MQTT_RX_BUFFER_SIZE                     256
+#define MQTT_USE_UNSUBSCRIBE                    DEF_ENABLED
+
+//---------------------------------------------------------
+// TCP Configuration
+
+#define TCP_MAX_TX_SEGMENTS                     2
+#define TCP_MSS                                 1460
+#define TCP_MAX_RETRY                           5
 
 //-------------------------------------------------------------------------------------------------
 
@@ -108,11 +125,8 @@
 
 
 #define SOCKET_MAX_COUNT                        10
-
 #define DNS_MAX_PENDING_COUNT                   4
-
-#define TCP_DEFAULT_WINDOW_SIZE                 1024
-
+#define TCP_DEFAULT_WINDOW_SIZE                 HTONS(4 * TCP_MSS)
 #define VENDOR_CLASS                            "Digini"
 
 #define IF_ETH_DEF(X_IF) \
