@@ -31,9 +31,11 @@
 //-------------------------------------------------------------------------------------------------
 
 #define CFG_HSE_VALUE                               25000000
-#define CFG_LSE_VALUE                               32768
 #define CFG_SYSTICK_RATE                            1000
 
+#define CFG_RTC_CLOCK_SOURCE                        CFG_RCC_BDCR_RTCSEL_LSE             // CFG_RCC_BDCR_RTCSEL_NO_CLOCK, CFG_RCC_BDCR_RTCSEL_LSE, CFG_RCC_BDCR_RTCSEL_LSI or CFG_RCC_BDCR_RTCSEL_HSE
+
+// User loop value for LIB_Delay_uSec function.. use IO to check for the right value
 #define CFG_DELAY_TIMING_LOOP_VALUE_FOR_1_USEC      1000 // TODO need to be set and fine tuned
 
 // User clock selection
