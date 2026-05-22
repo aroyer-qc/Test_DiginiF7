@@ -4,7 +4,7 @@
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2020 Alain Royer.
+// Copyright(c) 2026 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -34,6 +34,8 @@
 //  Define(s)
 //-------------------------------------------------------------------------------------------------
 
+//-------------------------------------------------------------------------------------------------
+
 #define DIGINI_MAX_PRINT_SIZE                           256
 #define DIGINI_USE_ASSERT                               DEF_DISABLED
 
@@ -46,6 +48,13 @@
 // Label support and option
 //
 #define DIGINI_USE_LABEL                                DEF_ENABLED
+
+//-------------------------------------------------------------------------------------------------
+// Modbus generic support and option
+//
+#define DIGINI_USE_MODBUS                               DEF_DISABLED
+#define DIGINI_USE_SERIAL_MODBUS                        DEF_DISABLED
+#define DIGINI_USE_TCP_MODBUS                           DEF_DISABLED		// Not develop yet
 
 //-------------------------------------------------------------------------------------------------
 // COMM support (Console, CLI, VT100)
@@ -75,11 +84,11 @@
 //-------------------------------------------------------------------------------------------------
 // FAT FS Peripheral support
 //
-#define DIGINI_USE_FATFS                                DEF_ENABLED
+#define DIGINI_USE_FATFS                                DEF_DISABLED
 
-#define DIGINI_FATFS_USE_SPI_FLASH_CHIP                 DEF_DISABLED  // to be added to peripheral list
+#define DIGINI_FATFS_USE_SPI_MEMORY                     DEF_DISABLED
 #define DIGINI_FATFS_USE_QSPI                           DEF_DISABLED  // to be added to peripheral list
-#define DIGINI_FATFS_USE_SDIO_SD_CARD                   DEF_ENABLED
+#define DIGINI_FATFS_USE_SDIO_SD_CARD                   DEF_DISABLED
 #define DIGINI_FATFS_USE_SPI_SD_CARD                    DEF_DISABLED
 #define DIGINI_FATFS_USE_USB_KEY                        DEF_DISABLED
 #define DIGINI_FATFS_USE_RAM_DISK                       DEF_DISABLED
@@ -87,7 +96,7 @@
 //-------------------------------------------------------------------------------------------------
 // GRAFX Configuration
 //
-#define DIGINI_USE_GRAFX                                DEF_DISABLED
+#define DIGINI_USE_GRAFX                                DEF_ENABLED
 
 //-------------------------------------------------------------------------------------------------
 // Software CRC Configuration
@@ -102,6 +111,8 @@
 
 //-------------------------------------------------------------------------------------------------
 // Debug special feature
-#define DIGINI_DEBUG_SDCARD_INFO_ON_VT100               DEF_ENABLED
+#define DIGINI_DEBUG_SDCARD_INFO_ON_VT100               DEF_DISABLED
 
 //-------------------------------------------------------------------------------------------------
+
+#define DIGINI_USE_DMA_MEM2MEM_FUNCTION                 DEF_DISABLED

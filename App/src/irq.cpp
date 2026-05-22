@@ -534,7 +534,7 @@ NOS_ISR(I2C4_ER_IRQHandler)
 #if (UART_DRIVER_SUPPORT_UART1_CFG == DEF_ENABLED)
 NOS_ISR(USART1_IRQHandler)
 {
-    myUART_Terminal.IRQ_Handler();
+    UART_DebugTerminal.IRQ_Handler();
 }
 #endif
 
@@ -1204,10 +1204,7 @@ void DMA2_Stream6_IRQHandler        (void)
 */
 void DMA2_Stream7_IRQHandler        (void)
 {
-    while(1)
-    {
-        __asm("nop");
-    };
+    UART_DebugTerminal.DMA_TX_IRQ_Handler();
 }
 
 void USART6_IRQHandler              (void)

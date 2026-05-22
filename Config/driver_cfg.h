@@ -42,6 +42,7 @@
 #define USE_CRC_DRIVER              DEF_ENABLED
 #define USE_DAC_DRIVER              DEF_ENABLED
 #define USE_ETH_DRIVER              DEF_ENABLED
+#define USE_FMC_SDRAM_DRIVER        DEF_DISABLED
 #define USE_IO_BUS_DRIVER           DEF_DISABLED
 #define USE_I2C_DRIVER              DEF_ENABLED
 #define USE_I2S_DRIVER              DEF_DISABLED
@@ -51,7 +52,6 @@
 #define USE_RTC_DRIVER              DEF_ENABLED
 #define USE_SAI_DRIVER              DEF_DISABLED                    // Serial audio out
 #define USE_SDIO_DRIVER             DEF_ENABLED
-#define USE_SDRAM_DRIVER            DEF_ENABLED
 #define USE_SPI_DRIVER              DEF_DISABLED
 #define USE_TIM_DRIVER              DEF_DISABLED
 #define USE_UART_DRIVER             DEF_ENABLED
@@ -59,15 +59,26 @@
     #define USE_USB_OTG_FS_CODE     DEF_DISABLED
     #define USE_USB_OTG_HS_CODE     DEF_DISABLED
 
+#define USE_DWT_PERIPHERAL          DEF_ENABLED
+
 // Driver and/or peripheral to use with this project
 
+#define GRAFX_PDI_HARD_INTERFACE            (void*)&myI2C_Control                       // I2C for the pointing device interface
+
 // LCD Display
-#define GRAFX_DRIVER_INCLUDE                "./Digini/Grafx/inc/driver/generic/lib_STM32xxx_lcd_480x272 - RK043FN48H.h"
+#ifdef KIT_F746_DISCO
+#define GRAFX_DRIVER_INCLUDE                "./Digini/Grafx/inc/driver/generic/lib_lcd_480x272 - RK043FN48H.h"
+#define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_FT5336.h"
+#endif
+#ifdef KIT_F756_EVAL
+#define GRAFX_DRIVER_INCLUDE                "./Digini/Grafx/inc/driver/generic/lib_lcd_640x480 - AM_640480GFTNQW.h"
+#define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_EXC7200.h"
+#endif
+// or
+//#define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_TS3510.h"
 #define GRAFX_DRIVER_ARGUMENT               nullptr                                     // this driver does not have argument (ex. pointer on structure and/or peripheral)
 
 // Pointing device, here it is the capacitive touch screen
-#define GRAFX_PDI_HARD_INTERFACE            (void*)&myI2C_Control                       // I2C for the pointing device interface
-#define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_FT5336.h"
 
 // For the Audio
 //#include "/Digini/Peripheral/inc/device/lib_class_audio_codec_WM8994.h"

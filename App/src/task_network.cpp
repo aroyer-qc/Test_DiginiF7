@@ -199,7 +199,7 @@ void ClassNetwork::Network(void)
            #endif
           #endif
         }
-        
+
       #if (IP_USE_TCP_CLIENT == DEF_ENABLED) && (IP_USE_MQTT == DEF_ENABLED)
         MQTT_Message_t* pTopicMessage;
 
@@ -239,8 +239,8 @@ void ClassNetwork::Network(void)
             ClassMQTT::FreeTopicMessage(pTopicMessage);
         }
       #endif
-        
-        
+
+
         nOS_Sleep(10);
         LED_Toggle(IO_LED1);
     }

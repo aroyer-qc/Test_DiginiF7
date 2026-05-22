@@ -1,10 +1,10 @@
 //-------------------------------------------------------------------------------------------------
 //
-//  File :  device_cfg.h
+//  File : FatFs_var.h
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2020 Alain Royer.
+// Copyright(c) 2023 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -26,31 +26,40 @@
 
 #pragma once
 
-
-// Example!!!!
-
 //-------------------------------------------------------------------------------------------------
-// Define(s)
+// constf(s)
 //-------------------------------------------------------------------------------------------------
 
-// Config for lib_class_audio_codec_C43L22
-//#define CS43L22_VERIFY_WRITTEN_DATA
-//#define CS43L22_CODEC_STANDARD                  CS43L22_STANDARD_PHILLIPS
-//#define CS43L22_OUTPUT_DEVICE                   CS43L22_OUTPUT_DEVICE_HEADPHONE
-//#define CS43L22_DEFAULT_VOLUME                  0
+#ifdef DISKIO_GLOBAL
 
-//#define DS3502_VOLUME_I2C_SLAVE_ADDRESS         0x28
+//SPI_Param_t SPI_FlashParameter               // Parameter for initialization of the SPI for the flash
+//{
+//    &SPI_ForFlash,
+//    FLASH_AUTO_DETECT,
+//    IO_CS_FLASH,
+//};
+#else
 
-#define MCP23008_INPUT_1_8_IOEXP_I2C_SLAVE_ADDRESS  0x20
-#define MCP23008_INPUT_8_16_IOEXP_I2C_SLAVE_ADDRESS 0x21
-#define MCP23017_IO_EXPANDER_I2C_SLAVE_ADDRESS      0x24
+//extern SPI_Param_t SPI_FlashParameter;
+
+#endif
 
 //-------------------------------------------------------------------------------------------------
-// Include file(s)
+// forward declaration(s)
 //-------------------------------------------------------------------------------------------------
 
-// Put here included for all high level driver. Driver for device not in the CPU
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_EEprom.h"
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_MCP230xx.h"
+#ifdef __cplusplus
+class FatFS_SPI_Memory;
+class FatFS_USB_Key;
+#endif
+
+//-------------------------------------------------------------------------------------------------
+// X-Macro(s)
+//-------------------------------------------------------------------------------------------------
+
+#define FAT_FS_DRIVE_DEF(X_DRIVE)\
+/*  		 ID of Disk,        Specific FatFs class, Object to create,    Parameter for     */          \
+    X_DRIVE( DISK_SPI_FLASH,   	FatFS_SPI_Memory,     SPI_FlashDisk,        (void*)&SPI_FlashParameter)	 \
+    X_DRIVE( DISK_USB_KEY,      FatFS_USB_Key,        USB_KeyDisk,          nullptr )		             \
 
 //-------------------------------------------------------------------------------------------------

@@ -48,16 +48,13 @@
 #define VT100_USE_TEMPERATURE_SELECTION         DEF_ENABLED
 #define VT100_USE_SERIAL_NUMBER_SETTING         DEF_ENABLED
 #define VT100_USE_TIME_AND_DATE_SETTING         DEF_ENABLED
+#define VT100_USE_SYSTEM_SETTING                DEF_ENABLED
 
-// TODO move label use by digini internal menu into digini lib_vt100_label.h
-// in fact I should move every configuration for menu item and menu built-in Digini to the digini itself
 
 #define VT100_USER_LABEL_LANGUAGE_DEF(X_VT100_USER_LBL_CFG) \
     X_VT100_USER_LBL_CFG( VT100_LBL_MENU_TITLE,                       "Test F7 Menu",                                             "Menu de Test F7"                                            ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_TEST,                             "Test",                                                     "Test"                                                       ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_MISCELLEANEOUS,                   "Miscelleaneous",                                           "Divers"                                                     ) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_SYSTEM_SETTING,                   "System Settings",                                          "Configuration Syst\x8ame"                                   ) \
-    X_VT100_USER_LBL_CFG( VT100_LBL_SYSTEM_SETTING_MENU,              "System Settings Menu",                                     "Menu Configuration Syst\x8ame"                              ) \
     X_VT100_USER_LBL_CFG( VT100_LBL_MISC_CONFIG_MENU,                 "Miscellaneous Configuration Menu",                         "Menu de Configuration Divers"                               ) \
 
 

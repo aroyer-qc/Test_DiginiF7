@@ -55,7 +55,12 @@ const char OUR_FIRMWARE_BUILD_DATE      [24] = { __DATE__ " " __TIME__ };
 
  #ifdef DEBUG
 char OEM_VENDOR_NAME                    []   = { "Digini"              };
+#ifdef KIT_F746_DISCO
 char OEM_MODEL_NAME                     []   = { "STM32F746G-DISCO"    };
+#endif
+#ifdef KIT_F756_EVAL
+char OEM_MODEL_NAME                     []   = { "STM32F756G-EVAL "    };
+#endif
 char OEM_SERIAL_NUMBER                  []   = { "00000000"            };
  #else
 char OEM_VENDOR_NAME                    []   = { "" };

@@ -1,10 +1,10 @@
 //-------------------------------------------------------------------------------------------------
 //
-//  File :  device_cfg.h
+//  File :  fmc_lcd_cfg.h
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2020 Alain Royer.
+// Copyright(c) 2026 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -26,31 +26,20 @@
 
 #pragma once
 
-
-// Example!!!!
-
 //-------------------------------------------------------------------------------------------------
 // Define(s)
 //-------------------------------------------------------------------------------------------------
 
-// Config for lib_class_audio_codec_C43L22
-//#define CS43L22_VERIFY_WRITTEN_DATA
-//#define CS43L22_CODEC_STANDARD                  CS43L22_STANDARD_PHILLIPS
-//#define CS43L22_OUTPUT_DEVICE                   CS43L22_OUTPUT_DEVICE_HEADPHONE
-//#define CS43L22_DEFAULT_VOLUME                  0
+#define CFG_FMC_LCD_BANK                                FMC_LCD_BANK1               // LCD Bank (NE1)
+#define CFG_FMC_LCD_MEM_BUS_WIDTH                       FMC_LCD_MEM_BUS_WIDTH_16    // LCD Memory Bus Width
 
-//#define DS3502_VOLUME_I2C_SLAVE_ADDRESS         0x28
+// LCD Timing
+#define CFG_FMC_LCD_TIMING_ADDRESS_SETUP_TIME           4                           // ~12 nSec
+#define CFG_FMC_LCD_TIMING_ADDRESS_HOLD_TIME            2                           // ~6  nSec
+#define CFG_FMC_LCD_TIMING_DATA_SETUP_TIME              4                           // ~12 nSec
 
-#define MCP23008_INPUT_1_8_IOEXP_I2C_SLAVE_ADDRESS  0x20
-#define MCP23008_INPUT_8_16_IOEXP_I2C_SLAVE_ADDRESS 0x21
-#define MCP23017_IO_EXPANDER_I2C_SLAVE_ADDRESS      0x24
-
-//-------------------------------------------------------------------------------------------------
-// Include file(s)
-//-------------------------------------------------------------------------------------------------
-
-// Put here included for all high level driver. Driver for device not in the CPU
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_EEprom.h"
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_MCP230xx.h"
+#define CFG_FMC_LCD_WRITE_TIMING_ADDRESS_SETUP_TIME     4                           // ~12 nSec
+#define CFG_FMC_LCD_WRITE_TIMING_ADDRESS_HOLD_TIME      2                           // ~6  nSec
+#define CFG_FMC_LCD_WRITE_TIMING_DATA_SETUP_TIME        6                           // ~36 nSec
 
 //-------------------------------------------------------------------------------------------------

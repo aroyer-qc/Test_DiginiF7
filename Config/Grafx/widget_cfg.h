@@ -4,7 +4,7 @@
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2020 Alain Royer.
+// Copyright(c) 2026 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -154,34 +154,34 @@
 #define BASIC_SHAPE_DEF(X_BASIC_SHAPE) \
  X_BASIC_SHAPE( LINE_TITLE, BASIC_LINE,     10,    34,    470,   34,    0,     0,     0,     0,    GREEN,       2,          GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
 
-//      Enum ID,                 Service,      Sub, Px,   Py,   Sx,   Sy,   TC,          TAC,         TAC2,    Font ID,        Text Blend,   Text Label             Text Option         Option
+//      Enum ID,                 Service,      Sub, Px,   Py,   Sx,   Sy,   TC,          TAC,         TAC2,    Font ID,        Text Blend,   Text Label             Background Text Label,  Text Option         Option
 #define LABEL_DEF(X_LBL) \
- X_LBL( LABEL_TIME,              SERV_ID_TIME, 0,   20,   7,    200,  16,   WHITE,       GREEN,       0,       SYS_FT_16,      CLEAR_BLEND,  LBL_TIME,              _X_LEFT_Y_CENTER,   GRAFX_OPTION_NONE)\
- X_LBL( LABEL_DATE,              SERV_ID_DATE, 0,   20,   67,   200,  16,   WHITE,       GREEN,       0,       SYS_FT_16,      CLEAR_BLEND,  LBL_DATE,              _X_LEFT_Y_CENTER,   GRAFX_OPTION_NONE)\
- X_LBL( LABEL_SKIN_LOADING,      SERV_ID_SKLD, 0,   134,  222,  300,  16,   GRAY_16,     GRAY_16,     GRAY_16, SYS_FT_16,      CLEAR_BLEND,  LBL_SKIN_LOADING,      _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE)\
- X_LBL( LABEL_PRINT_NUMBER,      SERV_ID_INPT, 'P', 16,   48,   448,  36,   GRAY_28,     RED,         0,       FT_DIGITAL_36,  CLEAR_BLEND,  LBL_STRING,            _X_RIGHT_Y_CENTER,  GRAFX_OPTION_NONE)\
- X_LBL( LABEL_INPT_TITLE,        SERV_ID_INPT, 'L', 16,   2,    448,  16,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_CENTER_Y_CENTER, GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_TIME,              SERV_ID_TIME, 0,   20,   7,    200,  16,   WHITE,       GREEN,       0,       SYS_FT_16,      CLEAR_BLEND,  LBL_TIME,              INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_NONE)\
+ X_LBL( LABEL_DATE,              SERV_ID_DATE, 0,   20,   67,   200,  16,   WHITE,       GREEN,       0,       SYS_FT_16,      CLEAR_BLEND,  LBL_DATE,              INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_NONE)\
+ X_LBL( LABEL_SKIN_LOADING,      SERV_ID_SKLD, 0,   134,  222,  300,  16,   GRAY_16,     GRAY_16,     GRAY_16, SYS_FT_16,      CLEAR_BLEND,  LBL_SKIN_LOADING,      INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE)\
+ X_LBL( LABEL_PRINT_NUMBER,      SERV_ID_INPT, 'P', 16,   48,   448,  36,   GRAY_28,     RED,         0,       FT_DIGITAL_36,  CLEAR_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_RIGHT_Y_CENTER,  GRAFX_OPTION_NONE)\
+ X_LBL( LABEL_INPT_TITLE,        SERV_ID_INPT, 'L', 16,   2,    448,  16,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_CENTER_Y_CENTER, GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
 /* XY XZ XYZ XYZA Display Page */ \
- X_LBL( LABEL_PAGE_MAIN_MENU,    SERV_ID_RFSH, 0,   20,   10,   200,  24,   GRAY_28,     0,           0,       FT_ARIAL_24,    ALPHA_BLEND,  LBL_MAIN_MENU,         _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_PAGE_MAIN_MENU,    SERV_ID_RFSH, 0,   20,   10,   200,  24,   GRAY_28,     0,           0,       FT_ARIAL_24,    ALPHA_BLEND,  LBL_MAIN_MENU,         INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
 /* Information Page */ \
- X_LBL( LABEL_INFO,              SERV_ID_RFSH, 0,   10,   20,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_24,    ALPHA_BLEND,  LBL_PAGE_INFO,         _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_FW_NAME_INFO,      SERV_ID_RFSH, 0,   10,   60,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_FW_NAME_INFO,      _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_FW_VERSION_INFO,   SERV_ID_RFSH, 0,   10,   90,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_FW_VERSION_INFO,   _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_GUI_NAME_INFO,     SERV_ID_RFSH, 0,   10,   120,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_GUI_NAME_INFO,     _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_GUI_VERSION_INFO,  SERV_ID_RFSH, 0,   10,   150,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_GUI_VERSION_INFO,  _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_HARDWARE_INFO,     SERV_ID_RFSH, 0,   10,   180,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_HARDWARE_INFO,     _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_SERIAL_INFO,       SERV_ID_RFSH, 0,   10,   210,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_SERIAL_INFO,       _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_COMPILE_DATE_INFO, SERV_ID_RFSH, 0,   10,   240,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_COMPILE_DATE_INFO, _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_FIRMWARE,     SERV_ID_INFO, 0,   200,  60,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_VERSION,      SERV_ID_INFO, 1,   200,  90,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_GUI_FIRMWARE, SERV_ID_INFO, 2,   200,  120,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_GUI_VERSION,  SERV_ID_INFO, 3,   200,  150,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_HARDWARE,     SERV_ID_INFO, 4,   200,  180,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_SERIAL,       SERV_ID_INFO, 5,   200,  210,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
- X_LBL( LABEL_INFO_DATE,         SERV_ID_INFO, 6,   200,  240,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO,              SERV_ID_RFSH, 0,   10,   20,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_24,    ALPHA_BLEND,  LBL_PAGE_INFO,         INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_FW_NAME_INFO,      SERV_ID_RFSH, 0,   10,   60,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_FW_NAME_INFO,      INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_FW_VERSION_INFO,   SERV_ID_RFSH, 0,   10,   90,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_FW_VERSION_INFO,   INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_GUI_NAME_INFO,     SERV_ID_RFSH, 0,   10,   120,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_GUI_NAME_INFO,     INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_GUI_VERSION_INFO,  SERV_ID_RFSH, 0,   10,   150,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_GUI_VERSION_INFO,  INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_HARDWARE_INFO,     SERV_ID_RFSH, 0,   10,   180,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_HARDWARE_INFO,     INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_SERIAL_INFO,       SERV_ID_RFSH, 0,   10,   210,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_SERIAL_INFO,       INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_COMPILE_DATE_INFO, SERV_ID_RFSH, 0,   10,   240,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_COMPILE_DATE_INFO, INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_FIRMWARE,     SERV_ID_INFO, 0,   200,  60,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_VERSION,      SERV_ID_INFO, 1,   200,  90,   200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_GUI_FIRMWARE, SERV_ID_INFO, 2,   200,  120,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_GUI_VERSION,  SERV_ID_INFO, 3,   200,  150,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_HARDWARE,     SERV_ID_INFO, 4,   200,  180,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_SERIAL,       SERV_ID_INFO, 5,   200,  210,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
+ X_LBL( LABEL_INFO_DATE,         SERV_ID_INFO, 6,   200,  240,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_16,    ALPHA_BLEND,  LBL_STRING,            INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE)\
 
 
-//X_LBL(   LABEL_SAFETY_DOOR,     SERV_ID_RFSH, 0,   270,  190,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_10,    ALPHA_BLEND,  LBL_INPUT_DOOR,   _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE | GRAFX_OPTION_DRAW_ON_BACK)
+//X_LBL( LABEL_SAFETY_DOOR,       SERV_ID_RFSH, 0,   270,  190,  200,  10,   GRAY_28,     0,           0,       FT_ARIAL_10,    ALPHA_BLEND,  LBL_INPUT_DOOR,   INVALID_LABEL,          _X_LEFT_Y_CENTER,   GRAFX_OPTION_DRAW_ONCE_AND_REMOVE | GRAFX_OPTION_DRAW_ON_BACK)
 
 //             Enum ID,                 Service,      Sub, Px,   Py,   Sx,   Sy,   TC,         TAC,       TAC2,        Font ID,        Text Blend,  State 0,          State 1,            State 2,       State 3,        Text Option,       Option
 //#define LABEL_LIST_DEF(X_LABEL_LIST)

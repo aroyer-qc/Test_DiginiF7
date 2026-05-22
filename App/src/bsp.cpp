@@ -132,7 +132,9 @@ void BSP_PostLoadingSkinFontPatch(void)
         for(int Character = 0; Character < 13; Character++)
         {
             DB_Central.Get(&FontDescriptor, GFX_FONT_DESC_INFO, DigitalFont[Font], DigitalChar[Character]);
-            FontDescriptor.Width = (DigitalChar[Character] == '.') ? DigitalDotWidth[Font] : DigitalWidth[Font];
+            // which one i don't know
+            FontDescriptor.WidthPixel = (DigitalChar[Character] == '.') ? DigitalDotWidth[Font] : DigitalWidth[Font];
+            FontDescriptor.HorizontalAdvance = (DigitalChar[Character] == '.') ? DigitalDotWidth[Font] : DigitalWidth[Font];
             FontDescriptor.LeftBearing = DigitalBearing[Font][Character];
             DB_Central.Set(&FontDescriptor, GFX_FONT_DESC_INFO, DigitalFont[Font], DigitalChar[Character]);
         }

@@ -41,7 +41,6 @@
     X_LABEL( LBL_FIRMWARE_UPGRADE,       "Firmware Upgrade",                            "Mise \x85 Niveau Logiciel"                     ) \
     X_LABEL( LBL_SKIN_LOADING,           "Skin Loading        %%",                      "Th\x82matique          %%"                     ) \
     X_LABEL( LBL_SETTINGS,               "Settings",                                    "Configurations"                                ) \
-    X_LABEL( LBL_PAGE_INFO,              "Software Information",                        "Information Logiciel"                          ) \
     X_LABEL( LBL_INFO,                   "Information",                                 nullptr                                         ) \
     X_LABEL( LBL_DIAG,                   "Diagnostic",                                  "Diagnostique"                                  ) \
     X_LABEL( LBL_TEST_1,                 "Float",                                       "Flottant"                                      ) \

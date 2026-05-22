@@ -1,10 +1,10 @@
 //-------------------------------------------------------------------------------------------------
 //
-//  File :  device_cfg.h
+//  File :  console_var.h
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2020 Alain Royer.
+// Copyright(c) 2026 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -26,31 +26,24 @@
 
 #pragma once
 
-
-// Example!!!!
-
 //-------------------------------------------------------------------------------------------------
-// Define(s)
+// Global variable(s) and constant(s)
 //-------------------------------------------------------------------------------------------------
 
-// Config for lib_class_audio_codec_C43L22
-//#define CS43L22_VERIFY_WRITTEN_DATA
-//#define CS43L22_CODEC_STANDARD                  CS43L22_STANDARD_PHILLIPS
-//#define CS43L22_OUTPUT_DEVICE                   CS43L22_OUTPUT_DEVICE_HEADPHONE
-//#define CS43L22_DEFAULT_VOLUME                  0
+#ifdef CONSOLE_GLOBAL
 
-//#define DS3502_VOLUME_I2C_SLAVE_ADDRESS         0x28
+class Console DebugConsole;                         // This console if for the debug, CLI, VT100
 
-#define MCP23008_INPUT_1_8_IOEXP_I2C_SLAVE_ADDRESS  0x20
-#define MCP23008_INPUT_8_16_IOEXP_I2C_SLAVE_ADDRESS 0x21
-#define MCP23017_IO_EXPANDER_I2C_SLAVE_ADDRESS      0x24
+#else
 
-//-------------------------------------------------------------------------------------------------
-// Include file(s)
-//-------------------------------------------------------------------------------------------------
+extern class Console DebugConsole;
 
-// Put here included for all high level driver. Driver for device not in the CPU
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_EEprom.h"
-#include "./Digini/Peripheral/inc/device/lib_class_I2C_MCP230xx.h"
+#endif // CONSOLE_GLOBAL
+
+
 
 //-------------------------------------------------------------------------------------------------
+
+
+
+

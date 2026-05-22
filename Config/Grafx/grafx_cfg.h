@@ -60,25 +60,16 @@
 
 #define GUI_TASK_STACK_SIZE                             1024
 
-//-------------------------------------------------------------------------------------------------
-// GRAFX Configuration for decompressing data
-//
-// Note(s) you must provide memory address for decompressing input and output data
-//
-//-------------------------------------------------------------------------------------------------
-
-// Du to memory limitation (8M), we use unused layer for temporary decoding
-#define GRAFX_RAW_INPUT_DATA_ADDRESS                    0xC00BF400      // 128K
-#define GRAFX_DECODE_ARRAY_ADDRESS                      0xC00DF400      // 224K
-#define GRAFX_APPEND_ARRAY_ADDRESS                      0xC0117400      // 224K
-#define GRAFX_PREFIX_ARRAY_ADDRESS                      0xC014F400      // 224K
-#define GRAFX_DECOMPRESS_METHOD_ADDRESS                 0xC0187400      // 8K
-#define GRAFX_DATA_SIZE_ADDRESS                         0xC0189400      // 8K
+#define GRAFX_USE_LOAD_SKIN                             DEF_ENABLED
+#define GRAFX_USE_POINTING_DEVICE                       DEF_ENABLED
+#define GRAFX_USE_PDI_MULTI_EVENT                       DEF_ENABLED     // Enable support for Multi-touch
+#define GRAFX_PDI_INTERRUPT_IO                          DEF_DISABLED    // Pointing device (touch) IRQ is not available on DISCO746
+#define GRAFX_USE_CUSTOM_COLOR                          DEF_ENABLED    	// Need color_cfg.h
+//  #define GRAFX_USE_TIMED_WIDGET   // TODO in future widget refresh
 
 //-------------------------------------------------------------------------------------------------
 
 #define GRAFX_SKIN_FILENAME                             "grbl.skn"
-#define GRAFX_USE_POINTING_DEVICE                       DEF_ENABLED
 
 //-------------------------------------------------------------------------------------------------
 
@@ -86,20 +77,14 @@
 #define GRAFX_USE_DISPLAY_RAM                           DEF_ENABLED
 #define GRAFX_USE_RAM_DATA                              DEF_ENABLED     // this setting is not very clear at this point... probably for LCD with ram access
 #define GRAFX_USE_ROM_DATA                              DEF_DISABLED
+#define GRAFX_USE_DISPLAY_LAYER							DEF_ENABLED    // The display is able to support layer directly in mapped memory
 
 #define GRAFX_USE_MULTI_LINE                            DEF_ENABLED
-
-#define GRAFX_TICK_WAIT_BETWEEN_REFRESH_LOOP            8
 
 #define GRAFX_USE_SLIDING_PAGE                          DEF_ENABLED
 #define GRAFX_SLIDING_PAGE_GRANULARITY                  16              // Each step is 10 Pixel wide
 #define GRAFX_TICK_WAIT_BETWEEN_SLIDE_IN_LOOP           16
 
-#define GRAFX_USE_BACKGROUND_LAYER                      DEF_ENABLED     // if you're LCD support more than 1 layer
-#define GRAFX_USE_CONSTRUCTION_BACKGROUND_LAYER         DEF_ENABLED     // if there is enough memory to construct on a hidden layer. (prevent glitch)
-#define GRAFX_USE_CONSTRUCTION_FOREGROUND_LAYER         DEF_ENABLED
-
-#define GRAFX_DEBUG_GUI                                 DEF_DISABLED
 #define GRAFX_PAINT_BOX_DEBUG                           DEF_DISABLED
 #define GRAFX_PAINT_BOX_DEBUG_COLOR                     RED
 
@@ -115,12 +100,7 @@
   #define GRAFX_PDI_INVERT_Y                            DEF_DISABLED    // Not existent on this setup
 #endif
 
-#define GRAFX_USE_LOAD_SKIN                             DEF_ENABLED
-#define GRAFX_USE_PDI_MULTI_EVENT                       DEF_ENABLED     // Enable support for Multi-touch
-#define GRAFX_PDI_INTERRUPT_IO                          DEF_DISABLED    // Pointing device (touch) IRQ is not available on DISCO746
 
-
-//#define GRAFX_USE_TIMED_WIDGET
 #define GRAFX_USE_FONT_SIZE_8                           DEF_DISABLED    // Not used on this setup
 #define GRAFX_USE_FONT_SIZE_12                          DEF_DISABLED    // Not used on this setup
 #define GRAFX_USE_FONT_SIZE_16                          DEF_ENABLED
@@ -151,6 +131,38 @@
 #define USE_SERV_INPS                                   DEF_DISABLED    // Service to input a string
 #define USE_SERV_TIME                                   DEF_ENABLED     // Service to provide time
 #define USE_SERV_XCHG                                   DEF_ENABLED     // Special service to exchange data.
+#define GRAFX_TICK_WAIT_BETWEEN_REFRESH_LOOP            8
 
 //-------------------------------------------------------------------------------------------------
+// Layer support configuration
 
+#define GRAFX_USE_BACKGROUND_LAYER                      DEF_ENABLED     // if you're LCD support more than 1 layer
+#define GRAFX_USE_FULL_FRAME_CONSTRUCTION_LAYER         DEF_ENABLED
+#define GRAFX_USE_CONSTRUCTION_BACKGROUND_LAYER         DEF_ENABLED     // if there is enough memory to construct on a hidden layer. (prevent glitch)
+#define GRAFX_USE_FOREGROUND_LAYER           			DEF_ENABLED
+#define GRAFX_USE_CONSTRUCTION_FOREGROUND_LAYER         DEF_ENABLED
+#define GRAFX_DEBUG_GUI                                 DEF_DISABLED	// This option can not be set if no layer exist
+
+//-------------------------------------------------------------------------------------------------
+//
+// Define for specific GRAFX Driver
+//
+// GRAFX Configuration for decompressing data
+//
+// Note(s) you must provide memory address for decompressing input and output data
+//
+//-------------------------------------------------------------------------------------------------
+
+#ifdef KIT_F746_DISCO
+// Du to memory limitation (8M), we use unused layer for temporary decoding
+    #define GRAFX_RAW_INPUT_DATA_ADDRESS                0xC00BF400      // 128K
+    #define GRAFX_DECODE_ARRAY_ADDRESS                  0xC00DF400      // 224K
+    #define GRAFX_APPEND_ARRAY_ADDRESS                  0xC0117400      // 224K
+    #define GRAFX_PREFIX_ARRAY_ADDRESS                  0xC014F400      // 224K
+    #define GRAFX_DECOMPRESS_METHOD_ADDRESS             0xC0187400      // 8K
+    #define GRAFX_DATA_SIZE_ADDRESS                     0xC0189400      // 8K
+#endif
+
+#ifdef KIT_F756_EVAL
+// TODO
+#endif
