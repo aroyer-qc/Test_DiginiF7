@@ -1,6 +1,6 @@
 //-------------------------------------------------------------------------------------------------
 //
-//  File :  Static_image_def.h
+//  File :  Static_image.h
 //
 //-------------------------------------------------------------------------------------------------
 //
@@ -23,22 +23,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 //-------------------------------------------------------------------------------------------------
-//
-//  Notes: X-macro Listing all the image resident in flash
-//
-//-------------------------------------------------------------------------------------------------
 
 #pragma once
 
 //-------------------------------------------------------------------------------------------------
 
-//                   IMAGE_ID        Struct Info Image
-#define STATIC_IMAGE_DEF(X_STATIC_IMAGE) \
-    X_STATIC_IMAGE(  LOADING_BACK,   SII_loading          )\
-    X_STATIC_IMAGE(  LOADING_CURSOR, SII_progress_cursor  )\
-    X_STATIC_IMAGE(  LOADING_BAR,    SII_progress_bar     )\
+extern const StaticImageInfo_t SII_loading;
+extern const StaticImageInfo_t SII_progress_cursor;
+extern const StaticImageInfo_t SII_progress_bar;
 
 //-------------------------------------------------------------------------------------------------
-
-
-

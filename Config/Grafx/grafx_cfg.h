@@ -58,7 +58,7 @@
 // Define(s)
 //-------------------------------------------------------------------------------------------------
 
-#define GUI_TASK_STACK_SIZE                             1024
+#define GUI_TASK_STACK_SIZE                             320
 
 #define GRAFX_USE_LOAD_SKIN                             DEF_ENABLED
 #define GRAFX_USE_POINTING_DEVICE                       DEF_ENABLED
@@ -69,13 +69,19 @@
 
 //-------------------------------------------------------------------------------------------------
 
+#define GRAFX_USE_HARD_DATABASE                         DEF_ENABLED
+#define GRAFX_USE_QUAD_SPI_FOR_DATABASE                 DEF_DISABLED
+#define GRAFX_USE_RAM_DATABASE                          DEF_ENABLED
+#define GRAFX_USE_ROM_DATABASE                          DEF_DISABLED
+
+//-------------------------------------------------------------------------------------------------
+
 #define GRAFX_SKIN_FILENAME                             "grbl.skn"
 
 //-------------------------------------------------------------------------------------------------
 
-// Special section use in this project
 #define GRAFX_USE_DISPLAY_RAM                           DEF_ENABLED
-#define GRAFX_USE_RAM_DATA                              DEF_ENABLED     // this setting is not very clear at this point... probably for LCD with ram access
+#define GRAFX_USE_RAM_DATA                              DEF_ENABLED
 #define GRAFX_USE_ROM_DATA                              DEF_DISABLED
 #define GRAFX_USE_DISPLAY_LAYER							DEF_ENABLED    // The display is able to support layer directly in mapped memory
 
@@ -136,7 +142,7 @@
 //-------------------------------------------------------------------------------------------------
 // Layer support configuration
 
-#define GRAFX_USE_BACKGROUND_LAYER                      DEF_ENABLED     // if you're LCD support more than 1 layer
+#define GRAFX_USE_CONSTRUCTION_ON_SINGLE_LAYER          DEF_DISABLED
 #define GRAFX_USE_FULL_FRAME_CONSTRUCTION_LAYER         DEF_ENABLED
 #define GRAFX_USE_CONSTRUCTION_BACKGROUND_LAYER         DEF_ENABLED     // if there is enough memory to construct on a hidden layer. (prevent glitch)
 #define GRAFX_USE_FOREGROUND_LAYER           			DEF_ENABLED

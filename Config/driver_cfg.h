@@ -63,11 +63,10 @@
 
 // Driver and/or peripheral to use with this project
 
-#define GRAFX_PDI_HARD_INTERFACE            (void*)&myI2C_Control                       // I2C for the pointing device interface
-
 // LCD Display
 #ifdef KIT_F746_DISCO
 #define GRAFX_DRIVER_INCLUDE                "./Digini/Grafx/inc/driver/generic/lib_lcd_480x272 - RK043FN48H.h"
+#define GRAFX_PDI_HARD_INTERFACE            (void*)&myI2C_Control                       // I2C for the pointing device interface
 #define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_FT5336.h"
 #endif
 #ifdef KIT_F756_EVAL
@@ -78,7 +77,7 @@
 //#define PDI_DRIVER_INCLUDE                  "./Digini/Peripheral/inc/device/lib_class_i2c_TS3510.h"
 #define GRAFX_DRIVER_ARGUMENT               nullptr                                     // this driver does not have argument (ex. pointer on structure and/or peripheral)
 
-// Pointing device, here it is the capacitive touch screen
+
 
 // For the Audio
 //#include "/Digini/Peripheral/inc/device/lib_class_audio_codec_WM8994.h"
