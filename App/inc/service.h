@@ -36,16 +36,10 @@
 // Define(s)
 //-------------------------------------------------------------------------------------------------
 
-#define SERV_ID_AXIS        U32MACRO('A','X','I','S')
-#define SERV_ID_COOR        U32MACRO('C','O','O','R')
-#define SERV_ID_ENBL        U32MACRO('E','N','B','L')
-#define SERV_ID_GCOD        U32MACRO('G','C','O','D')
-#define SERV_ID_INCH        U32MACRO('I','N','C','H')
+#define SERV_ID_DIAL        U32MACRO('D','I','A','L')
 #define SERV_ID_INFO        U32MACRO('I','N','F','O')
 #define SERV_ID_INPU        U32MACRO('I','N','P','U')
-#define SERV_ID_SPIN        U32MACRO('S','P','I','N')
 #define SERV_ID_MHUB        U32MACRO('M','H','U','B')
-#define SERV_ID_MACH        U32MACRO('M','A','C','H')
 #define SERV_ID_XCHG        U32MACRO('X','C','H','G')
 
 //-------------------------------------------------------------------------------------------------

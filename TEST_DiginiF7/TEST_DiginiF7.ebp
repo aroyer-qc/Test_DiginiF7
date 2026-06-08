@@ -356,6 +356,7 @@
 			<Option target="Release_F746_Disco" />
 		</Unit>
 		<Unit filename="..\Module\Digini\Grafx\inc\driver\STM32\lib_STM32_Generic.h" />
+		<Unit filename="..\Module\Digini\Grafx\inc\driver\STM32\lib_STM32_ltdc.h" />
 		<Unit filename="..\Module\Digini\Grafx\src\basic\lib_basic_alpha.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -386,7 +387,10 @@
 			<Option target="Debug_F746_Disco" />
 			<Option target="Release_F746_Disco" />
 		</Unit>
-		<Unit filename="..\Module\Digini\Grafx\src\driver\STM32\lib_STM32xxx_ltdc_GenericDriver.cpp">
+		<Unit filename="..\Module\Digini\Grafx\src\driver\STM32\lib_STM32xxx_dma2d_GenericDriver.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Module\Digini\Grafx\src\driver\STM32\lib_STM32xxx_ltdc.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\Module\Digini\Grafx\src\driver\STM32\lib_STM32xxx_ltdc_lcd_480x272 - RK043FN48H.cpp">

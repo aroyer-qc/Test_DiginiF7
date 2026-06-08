@@ -47,6 +47,8 @@
     X_LABEL( LBL_TEST_2,                 "Decimal",                                     "D\x82" "cimale"                                ) \
     X_LABEL( LBL_TEST_3,                 "Hexa",                                        nullptr                                         ) \
     X_LABEL( LBL_TEST_4,                 "String",                                      nullptr                                         ) \
+\
+    X_LABEL( LBL_TEST_DIAL,	             "Widget Dial",                                 nullptr		        					        ) \
 
 //-------------------------------------------------------------------------------------------------
 

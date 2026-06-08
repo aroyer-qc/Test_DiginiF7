@@ -49,13 +49,6 @@ const PageWidget_t PageMainDisplayXY    [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_2_3,                 LINK_AXIS_Y         },      //   " Y
                                                 {   BOX_3_3,                 LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-// add Jog button to page                       {   BTN_JOG,                 LINK_JOG_HUB        },      // Yellow box around axis X information
-                                                {   ICON_LED_LIMIT_X_3,      INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Y_3,      INVALID_LINK        },      // Y Led limit
-                                                {   ICON_LED_SPINDLE_3_3,    INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -64,13 +57,6 @@ const PageWidget_t PageMainDisplayXZ    [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_2_3,                 LINK_AXIS_Z         },      //   " Z
                                                 {   BOX_3_3,                 LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-// add Jog button to page                       {   BTN_JOG,                 LINK_JOG_HUB        },      // Yellow box around axis X information
-                                                {   ICON_LED_LIMIT_X_3,      INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Z_3,      INVALID_LINK        },      // Z Led limit
-                                                {   ICON_LED_SPINDLE_3_3,    INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -80,14 +66,6 @@ const PageWidget_t PageMainDisplayXYZ   [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_3_4,                 LINK_AXIS_Z         },      //   " Z
                                                 {   BOX_4_4,                 LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-// add Jog button to page                       {   BTN_JOG,                 LINK_JOG_HUB        },      // Yellow box around axis X information
-                                                {   ICON_LED_LIMIT_X_4,      INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Y_4,      INVALID_LINK        },      // Y Led limit
-                                                {   ICON_LED_LIMIT_Z_4,      INVALID_LINK        },      // Z Led limit
-                                                {   ICON_LED_SPINDLE_4_4,    INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -96,14 +74,7 @@ const PageWidget_t PageMainDisplayXYT   [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_2_3T,                LINK_AXIS_Y         },      //   " Y
                                                 {   BOX_3_3T,                LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-                                                {   ICON_LED_LIMIT_X_3T,     INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Y_3T,     INVALID_LINK        },      // Y Led limit
-                                                {   ICON_LED_SPINDLE_3_3T,   INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   BOX_T,                   INVALID_LINK        },
-                                                {   TERM_GCODE,              LINK_PAGE_TERMINAL  },      // LED coolant active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -112,14 +83,7 @@ const PageWidget_t PageMainDisplayXZT   [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_2_3T,                LINK_AXIS_Z         },      //   " Z
                                                 {   BOX_3_3T,                LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-                                                {   ICON_LED_LIMIT_X_3T,     INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Z_3T,     INVALID_LINK        },      // Z Led limit
-                                                {   ICON_LED_SPINDLE_3_3T,   INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   BOX_T,                   LINK_PAGE_TERMINAL  },
-                                                {   TERM_GCODE,              INVALID_LINK        },      // LED coolant active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -129,21 +93,12 @@ const PageWidget_t PageMainDisplayXYZT  [] =  { {   BACK_DIAMOND,            INV
                                                 {   BOX_3_4T,                LINK_AXIS_Z         },      //   " Z
                                                 {   BOX_4_4T,                LINK_SPINDLE        },      //   " Spindle
                                                 {   BTN_SETTING,             LINK_MAIN_MENU      },      // Button to go to setting menu
-                                                {   ICON_LED_LIMIT_X_4T,     INVALID_LINK        },      // X Led limit
-                                                {   ICON_LED_LIMIT_Y_4T,     INVALID_LINK        },      // Y Led limit
-                                                {   ICON_LED_LIMIT_Z_4T,     INVALID_LINK        },      // Z Led limit
-                                                {   ICON_LED_SPINDLE_4_4T,   INVALID_LINK        },      // LED enable for Spindle
-                                                {   ICON_LED_ENABLE,         INVALID_LINK        },      // LED Enable
-                                                {   ICON_LED_COOLANT,        INVALID_LINK        },      // LED coolant active
-                                                {   ICON_LED_MIST,           INVALID_LINK        },      // LED mist active
                                                 {   BOX_T,                   LINK_PAGE_TERMINAL  },
-                                                {   TERM_GCODE,              INVALID_LINK        },      // LED coolant active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
 const PageWidget_t PageTerminal         [] =  { {   BACK_DIAMOND,            INVALID_LINK        },      // Background
                                                 {   BTN_RETURN,              LINK_MAIN_HUB       },      // Button to go to setting menu
-                                                {   TERM_GCODE_FULL,         INVALID_LINK        },      // LED coolant active
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -151,7 +106,6 @@ const PageWidget_t PageAxisX            [] =  { {   BACK_DIAMOND,            INV
 // need backlash adjustment button and label
 // need Machine range setting
                                                 {   BOX_AXIS,                INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_X_AXIS,   INVALID_LINK        },      // Limit
                                                 {   BTN_RETURN,              LINK_MAIN_HUB       },
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
@@ -160,7 +114,6 @@ const PageWidget_t PageAxisY            [] =  { {   BACK_DIAMOND,            INV
 // need backlash adjustment button and label
 // need Machine range setting
                                                 {   BOX_AXIS,                INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_Y_AXIS,   INVALID_LINK        },      // Limit
                                                 {   BTN_RETURN,              LINK_MAIN_HUB       },
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
@@ -170,18 +123,12 @@ const PageWidget_t PageAxisZ            [] =  { {   BACK_DIAMOND,            INV
 // need Machine range setting
                                                 {   BOX_AXIS,                INVALID_LINK        },
                                                 {   BTN_RETURN,              LINK_MAIN_HUB       },
-                                                {   ICON_LED_LIMIT_Z_AXIS,   INVALID_LINK        },      // Limit
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
 const PageWidget_t PageSpindle          [] =  { {   BACK_DIAMOND,            INVALID_LINK        },      // Background
                                                 {   BOX_AXIS,                INVALID_LINK        },
                                                 {   BTN_RETURN,              LINK_MAIN_HUB       },
-                                                {   BTN_DOWN_MIN,            INVALID_LINK        },
-                                                {   BTN_UP_MIN,              INVALID_LINK        },
-                                                {   BTN_DOWN_MAX,            INVALID_LINK        },
-                                                {   BTN_UP_MAX,              INVALID_LINK        },
-                                                {   ICON_LED_SPINDLE,        INVALID_LINK        },      // LED enable for Spindle
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -196,28 +143,8 @@ const PageWidget_t PageMenu             [] =  { {   BACK_DIAMOND,            INV
 const PageWidget_t PageMachineSelect    [] =  { {   BACK_DIAMOND,            INVALID_LINK        },      // Background
 // Should I add here mm or Inch?
 // Should I add here terminal windows or not?
-                                                {   ICON_XY_MAC,             INVALID_LINK        },
-                                                {   ICON_ZX_MAC,             INVALID_LINK        },
-                                                {   ICON_XYZ_MAC,            INVALID_LINK        },
-                                                {   ICON_A_MAC,              INVALID_LINK        },
-                                                {   ICON_B_MAC,              INVALID_LINK        },
-                                                {   ICON_C_MAC,              INVALID_LINK        },
                                                 {   BTN_RETURN_DOWN,         PREVIOUS_LINK       },
                                                 {   RECT_BLANK_MACHINE,      INVALID_LINK        },     // Erase the display section of the graphic representatio
-                                                {   ICON_MACHINE_XY,         INVALID_LINK        },
-                                                {   ICON_MACHINE_ZX,         INVALID_LINK        },
-                                                {   ICON_MACHINE_Z,          INVALID_LINK        },
-                                                {   ICON_MACHINE_A,          INVALID_LINK        },
-                                                {   ICON_MACHINE_A2,         INVALID_LINK        },
-                                                {   ICON_MACHINE_B,          INVALID_LINK        },
-                                                {   ICON_MACHINE_C,          INVALID_LINK        },
-                                                {   ICON_MACHINE_C2,         INVALID_LINK        },
-                                                {   ICON_CHECK_XY,           INVALID_LINK        },
-                                                {   ICON_CHECK_ZX,           INVALID_LINK        },
-                                                {   ICON_CHECK_XYZ,          INVALID_LINK        },
-                                                {   ICON_CHECK_A,            INVALID_LINK        },
-                                                {   ICON_CHECK_B,            INVALID_LINK        },
-                                                {   ICON_CHECK_C,            INVALID_LINK        },
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -277,22 +204,6 @@ const PageWidget_t InputDataHexa        [] =  { {   BACK_DIAMOND,            INV
 
 const PageWidget_t PageDiagnostic       [] =  { {   BACK_DIAMOND,            INVALID_LINK        },
                                                 {   BTN_RETURN_DOWN,         PREVIOUS_LINK       },
-                                                {   ICON_LED_LIMIT_X1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_Y1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_Z1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_A1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_B1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_C1,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_X2,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_Y2,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_Z2,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_A2,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_B2,       INVALID_LINK        },
-                                                {   ICON_LED_LIMIT_C2,       INVALID_LINK        },
-                                                {   ICON_LED_ABORT,          INVALID_LINK        },
-                                                {   ICON_LED_RESUME,         INVALID_LINK        },
-                                                {   ICON_LED_HOLD,           INVALID_LINK        },
-                                                {   ICON_LED_PROBE,          INVALID_LINK        },
                                                 {   INVALID_WIDGET,          INVALID_LINK        }
                                               };
 
@@ -319,6 +230,8 @@ const PageWidget_t PageInfo             [] =  { {   BACK_DIAMOND,            INV
 #endif  // GFX_GLOBAL
 
 //-------------------------------------------------------------------------------------------------
+
+//                                                 {   BTN_DIAL_TEST,           LINK_PAGE_DIAL      },
 
 
 

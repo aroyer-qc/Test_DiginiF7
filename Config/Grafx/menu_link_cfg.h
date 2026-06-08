@@ -59,6 +59,7 @@
 //-------------------------------------------------------------------------------------------------
 
 //    X_LINK( LINK_SET_REF,         PageMachineSelect    )
+//    X_LINK( LINK_PAGE_DIAL,       PageDial             )
 
 
 

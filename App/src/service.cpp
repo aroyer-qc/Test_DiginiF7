@@ -51,7 +51,15 @@ Service type 7 - Return data to override position of a widget (Must be a memory 
 #define SERVICE_PRINT_BUFFER_SIZE   80
 
 //-------------------------------------------------------------------------------------------------
-// Variable(s)
+// external(s)
+//-------------------------------------------------------------------------------------------------`
+
+extern char GuiID		[];
+extern char IP_Address	[];
+extern char MAC_Address	[];
+
+//-------------------------------------------------------------------------------------------------
+// external(s)
 //-------------------------------------------------------------------------------------------------`
 
 bool        IsTerminalEnabled         = false;
@@ -74,6 +82,45 @@ uint16_t GetIO_State(IO_ID_e LimitID)
     }
 
     return State;
+}
+
+//-------------------------------------------------------------------------------------------------
+//
+//  Name:           SERV_DIAL
+//
+//  Parameter(s):   ServiceEvent_e*  pServiceState
+//                  uint16_t         SubService
+//  Return:         ServiceReturn_t
+//
+//  Description:    This function return data to properly feed dial widget with relevant info
+//
+//-------------------------------------------------------------------------------------------------
+// TODO
+static ServiceReturn_t* SERV_DIAL(ServiceEvent_e* pServiceState, uint16_t SubService)
+{
+    ServiceReturn_t* pService              = nullptr;
+    static TickCount_t TimeOut             = 250;
+    static TickCount_t Start               = 0;
+    static uint16_t Count                  = 0;
+
+    if(TickHasTimeOut(Start, TimeOut) == true)
+    {
+        Start = GetTick();
+        Count++;
+
+        if(Count >= 60)		// ROTATION_TABLE_6   6° step (360° / 6°) 60 positions
+        {
+            Count = 0;
+        }
+    }
+
+    if((pService = GetServiceStruct(SERVICE_RETURN_TYPE1)) != nullptr)
+    {
+        ((ServiceType1_t*)pService)->Data = Count;
+        *pServiceState = SERVICE_REFRESH;
+    }
+
+    return pService;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -197,33 +244,41 @@ ServiceReturn_t* ServiceCallApp(Service_t* pService, ServiceEvent_e* pServiceSta
             switch(pService->ID)
             {
             }
-            break;
         }
+        break;
+
+        case 'D':
+        {
+            switch(pService->ID)
+            {
+                case SERV_ID_DIAL:  pServiceReturn = SERV_DIAL(pServiceState, pService->SubID);  break;
+            }
+        }
+        break;
 
         case 'C':
         {
             switch(pService->ID)
             {
             }
-            break;
         }
+        break;
 
         case 'E':
         {
             switch(pService->ID)
             {
             }
-            break;
         }
+        break;
 
         case 'G':
         {
             switch(pService->ID)
             {
             }
-            break;
-
         }
+        break;
 
         case 'I':
         {
@@ -232,25 +287,24 @@ ServiceReturn_t* ServiceCallApp(Service_t* pService, ServiceEvent_e* pServiceSta
                 case SERV_ID_INFO:  pServiceReturn = SERV_INFO(pServiceState, pService->SubID);  break;
                 case SERV_ID_INPU:  pServiceReturn = SERV_INPU(pServiceState, pService->SubID);  break;
             }
-            break;
-
         }
+        break;
 
         case 'M':
         {
             switch(pService->ID)
             {
             }
-            break;
         }
+        break;
 
         case 'S':
         {
             switch(pService->ID)
             {
             }
-            break;
         }
+        break;
     }
 
     return pServiceReturn;

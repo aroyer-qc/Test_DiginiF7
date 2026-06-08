@@ -38,6 +38,8 @@
 //  TSy     -> Text Size Y
 //  GPx     -> Glyph Position X
 //  GPy     -> Glyph Position Y
+//  Cx		-> Circle center Position X
+//  Cy		-> Circle center Position Y
 //  BC      -> Back Color
 //  TC      -> Text Color
 //  TAC     -> Text Alternate Color
@@ -56,7 +58,9 @@
 //  CPR     -> Cursor Pixel Range      ex. 0% to 100% = 384 Pixel
 //  ResX    -> Resolution Widget X     Not necessarily in pixel ( Ex. SPECTRUM -> 16 line x 12 dot)
 //  ResY    -> Resolution Widget Y
-//
+//  SA		-> Start Angle
+//  EA		-> End Angle
+//  STPA	-> Step Angle
 //
 //-------------------------------------------------------------------------------------------------
 //
@@ -90,6 +94,7 @@
 //      Enum ID,           Service,      Sub,                   Px,   Py,   Released btn,   Pressed button,         Inactive button,   GPx,  GPy,  Released glyph,     Pressed glyph,      Inactive glyph  TOPx, TOPy, TOSx, TOSy, TPx,  TPy,    TSx,  TSy,  TC,         TC_PR,        TC_GR,        Font ID,          Text Option,             Text Label,     Filter,                 Option,
 #define BTN_DEF(X_BTN) \
  X_BTN( BTN_SETTING,       SERV_ID_BDEF, SLIDING_RIGHT_OVLAP,   426,  10,   BT_SPHERE,      BT_SPHERE_PR,           INVALID_IMAGE,     8,    8,    GL_TOOLS,           GL_TOOLS,           INVALID_IMAGE,  426,  10,   45,   45,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
+ X_BTN( BTN_DIAL_TEST,     SERV_ID_BDEF, 0,                     164,  100,  BT_MENU,        BT_MENU_PR,             BT_MENU_GR,        113,  9,    GL_WARNING,         GL_WARNING,         INVALID_IMAGE,  16,   10,   15,   4,    10,   11,    120,  15,    BROWN,      BLACK,        0,            FT_ARIAL_16,      0,                       LBL_TEST_DIAL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE | GRAFX_OPTION_BLEND_ALPHA)\
  /*X_BTN( BTN_JOG,           SERV_ID_BDEF, 0,                   426,  40,   BT_SPHERE,      BT_SPHERE_PR,           INVALID_IMAGE,     8,    8,    GL_JOG,             GL_JOG,             INVALID_IMAGE,  426,  10,   45,   45,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)*/\
  X_BTN( BTN_RETURN,        SERV_ID_BDEF, SLIDING_LEFT_DE_OVLAP, 426,  10,   BT_SPHERE,      BT_SPHERE_PR,           INVALID_IMAGE,     8,    8,    GL_RETURN,          GL_RETURN,          INVALID_IMAGE,  426,  10,   45,   45,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
  X_BTN( BTN_RETURN_DOWN,   SERV_ID_BDEF, SLIDING_DOWN,          426,  10,   BT_SPHERE,      BT_SPHERE_PR,           INVALID_IMAGE,     8,    8,    GL_RETURN,          GL_RETURN,          INVALID_IMAGE,  426,  10,   45,   45,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
@@ -117,11 +122,6 @@
  X_BTN( BTN_CANCEL,        SERV_ID_INPT, '!',                   400,  233,  BT_YELLOW_LONG, BT_YELLOW_LONG_PR,      INVALID_IMAGE,     21,   4,    GL_CANCEL,          GL_CANCEL,          INVALID_IMAGE,  400,  233,  75,   38,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
  X_BTN( BTN_DIAG,          SERV_ID_BDEF, SLIDING_UP,            281,  170,  BT_MENU,        BT_MENU_PR,             BT_MENU_GR,        126,  12,   GL_DIAG,            GL_DIAG,            INVALID_IMAGE,  281,  170,  158,  45,   12,    13,    100,  12,   BROWN,      BLACK,        0,            FT_ARIAL_10,      0,                       LBL_DIAG,       SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
  X_BTN( BTN_INFO,          SERV_ID_BDEF, SLIDING_UP,            281,  220,  BT_MENU,        BT_MENU_PR,             BT_MENU_GR,        126,  12,   GL_INFO,            GL_INFO,            INVALID_IMAGE,  281,  220,  158,  45,   12,    13,    100,  12,   BROWN,      BLACK,        0,            FT_ARIAL_10,      0,                       LBL_INFO,       SERVICE_FILTER_NORMAL,  GRAFX_OPTION_TOUCH_RECTANGLE)\
-/* Spindle page */ \
- X_BTN( BTN_DOWN_MIN,      SERV_ID_SPIN, 3,                     22,   220,  GL_CHECK_BOX,   GL_CHECK_BOX_PR,        GL_CHECK_BOX_GR,   5,    6,    GL_DOWN,            GL_DOWN,            INVALID_IMAGE,  22,    220, 40,   40,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL_AND_TYPEMATIC,  GRAFX_OPTION_TOUCH_RECTANGLE)\
- X_BTN( BTN_UP_MIN,        SERV_ID_SPIN, 4,                     192,  220,  GL_CHECK_BOX,   GL_CHECK_BOX_PR,        GL_CHECK_BOX_GR,   5,    5,    GL_UP,              GL_UP,              INVALID_IMAGE,  192,   220, 40,   40,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL_AND_TYPEMATIC,  GRAFX_OPTION_TOUCH_RECTANGLE)\
- X_BTN( BTN_DOWN_MAX,      SERV_ID_SPIN, 5,                     242,  220,  GL_CHECK_BOX,   GL_CHECK_BOX_PR,        GL_CHECK_BOX_GR,   5,    6,    GL_DOWN,            GL_DOWN,            INVALID_IMAGE,  242,   220, 40,   40,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL_AND_TYPEMATIC,  GRAFX_OPTION_TOUCH_RECTANGLE)\
- X_BTN( BTN_UP_MAX,        SERV_ID_SPIN, 6,                     412,  220,  GL_CHECK_BOX,   GL_CHECK_BOX_PR,        GL_CHECK_BOX_GR,   5,    5,    GL_UP,              GL_UP,              INVALID_IMAGE,  412,   220, 40,   40,   0,     0,     0,    0,    0,          0,            0,            INVALID_FONT,     0,                       INVALID_LABEL,  SERVICE_FILTER_NORMAL_AND_TYPEMATIC,  GRAFX_OPTION_TOUCH_RECTANGLE)\
 
 //            Enum ID,      Service,       Sub, Px,   Py,   Sx,   Sy,   Top Left,    Top Right,    Bottom Left,    Bottom Right,    Horizontal,    Vertical     Filter                 Option
 #define BASIC_BOX_DEF(X_BASIC_BOX) \
@@ -198,8 +198,6 @@
 
 //       Enum ID,               Service,      Sub, Px,  Py,       Sx,   Sy,  Icon 0,           Icon 1,          Icon 2,        Icon 3,            Option,
 #define ICON_DEF(X_ICON) \
- X_ICON( ICON_LED_SPINDLE_3_3,  SERV_ID_ENBL, 9,   140, 212,      0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_BLEND_CLEAR )\
- X_ICON( ICON_LED_SPINDLE_4_4,  SERV_ID_ENBL, 9,   180, 225,      0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_BLEND_CLEAR )\
  X_ICON( ICON_LED_LIMIT_X_3,    SERV_ID_INPU, 0,   90,  11,       0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_X_4,    SERV_ID_INPU, 0,   90,  15,       0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_X_3T,   SERV_ID_INPU, 0,   6,   60,       0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
@@ -212,19 +210,6 @@
  X_ICON( ICON_LED_LIMIT_Z_4,    SERV_ID_INPU, 2,   90,  151,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_Z_3T,   SERV_ID_INPU, 2,   6,   151,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_Z_4T,   SERV_ID_INPU, 2,   10,  176,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
-/* XYT or ZXT Display Pages */ \
- X_ICON( ICON_LED_SPINDLE_3_3T, SERV_ID_ENBL, 9,   20, 212,       0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_BLEND_CLEAR )\
-/* XYZT Display Pages */ \
- X_ICON( ICON_LED_SPINDLE_4_4T, SERV_ID_ENBL, 9,   20,  240,      0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_BLEND_CLEAR )\
-/* All icon machine are draw on top of each other, so first one will erase area, all other are merge, single draw until ask to be redraw with service SERVICE_REDRAW */\
- X_ICON( ICON_MACHINE_XY,       SERV_ID_MACH, 20,  18,  80 + 57,  0,    0,   INVALID_IMAGE,    GL_XY,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_ZX,       SERV_ID_MACH, 21,  18,  80 + 50,  0,    0,   INVALID_IMAGE,    GL_ZX,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_Z,        SERV_ID_MACH, 22,  18,  80,       0,    0,   INVALID_IMAGE,    GL_Z,            INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_A,        SERV_ID_MACH, 23,  42,  80 + 101, 0,    0,   INVALID_IMAGE,    GL_A,            INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_B,        SERV_ID_MACH, 24,  60,  80 + 67,  0,    0,   INVALID_IMAGE,    GL_B,            INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_C,        SERV_ID_MACH, 25,  10,  80 + 35,  0,    0,   INVALID_IMAGE,    GL_C,            INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_A2,       SERV_ID_MACH, 26,  60,  80 + 67,  0,    0,   INVALID_IMAGE,    GL_A2,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_MACHINE_C2,       SERV_ID_MACH, 27,  41,  80 + 101, 0,    0,   INVALID_IMAGE,    GL_C2,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
 /* Icon leds for diagnostic page */\
  X_ICON( ICON_LED_LIMIT_X1,     SERV_ID_INPU, 0,   10,  60,       0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_Y1,     SERV_ID_INPU, 1,   10,  100,      0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
@@ -249,12 +234,6 @@
  X_ICON( ICON_A_MAC,            SERV_ID_RFSH, 0,   310,  70,      40,   40,  GL_CHECK_BOX,     INVALID_IMAGE,   INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_CLEAR )\
  X_ICON( ICON_B_MAC,            SERV_ID_RFSH, 0,   310,  120,     40,   40,  GL_CHECK_BOX,     INVALID_IMAGE,   INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_CLEAR )\
  X_ICON( ICON_C_MAC,            SERV_ID_RFSH, 0,   310,  170,     40,   40,  GL_CHECK_BOX,     INVALID_IMAGE,   INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_CLEAR )\
- X_ICON( ICON_CHECK_XY,         SERV_ID_MACH, 10,  146,  70,      0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_CHECK_ZX,         SERV_ID_MACH, 11,  146,  120,     0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_CHECK_XYZ,        SERV_ID_MACH, 12,  146,  170,     0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_CHECK_A,          SERV_ID_MACH, 13,  316,  70,      0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_CHECK_B,          SERV_ID_MACH, 14,  316,  120,     0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
- X_ICON( ICON_CHECK_C,          SERV_ID_MACH, 15,  316,  170,     0,    0,   INVALID_IMAGE,    GL_OK,           INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_ENABLE,       SERV_ID_RFSH, 0,   440,  100,     0,    0,   GL_LED_RED_OFF,   GL_LED_RED_ON,   GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_COOLANT,      SERV_ID_RFSH, 0,   440,  160,     0,    0,   GL_LED_RED_OFF,   GL_LED_RED_ON,   GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_MIST,         SERV_ID_RFSH, 0,   440,  220,     0,    0,   GL_LED_RED_OFF,   GL_LED_RED_ON,   GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
@@ -262,19 +241,10 @@
  X_ICON( ICON_LED_LIMIT_X_AXIS, SERV_ID_INPU, 0,   200,  30,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_Y_AXIS, SERV_ID_INPU, 1,   200,  30,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
  X_ICON( ICON_LED_LIMIT_Z_AXIS, SERV_ID_INPU, 2,   200,  30,      0,    0,   GL_LED_RED_ON,    GL_LED_RED_OFF,  GL_LED_GRAY_OFF,  INVALID_IMAGE,  GRAFX_OPTION_NONE )\
-/* Spindle Page */\
- X_ICON( ICON_LED_SPINDLE,      SERV_ID_ENBL, 9,   90,   86,      0,    0,   GL_LED_GREEN_OFF, GL_LED_GREEN_ON, INVALID_IMAGE,    INVALID_IMAGE,  GRAFX_OPTION_BLEND_CLEAR )\
 
 //             Enum ID,               Service,      Sub, Px,  Py,  Sx,  Sy,  Color,    Filter,                 Options
 #define BASIC_RECT_DEF(X_BASIC_RECT) \
  X_BASIC_RECT( RECT_BLANK_MACHINE,    SERV_ID_RFSH, 0,   10,  80,  120, 150, BLACK,    SERVICE_FILTER_NORMAL,  GRAFX_OPTION_NONE   ) \
-
-//            Enum ID,          Service,       Sub, Px,  Py,  Sx,  Sy,  TC,          Font ID,      Filter,                Options
-#define TERMINAL_DEF(X_TERMINAL) \
- X_TERMINAL ( TERM_GCODE,       SERV_ID_GCOD,  0,   182, 5,   228, 262, LIGHT_GREEN, FT_TERMINAL,  SERVICE_FILTER_NORMAL, GRAFX_OPTION_TOUCH_RECTANGLE)\
- X_TERMINAL ( TERM_GCODE_FULL,  SERV_ID_GCOD,  1,   0,   0,   430, 272, LIGHT_GREEN, FT_ARIAL_10,  SERVICE_FILTER_NORMAL, GRAFX_OPTION_TOUCH_RECTANGLE)\
-
-//              Enum ID,         Service,       Sub, Timing, Px,  Py,  Sx,  Sy,  Slide Direction,         Filter,                Options
 
 #if 0
 
