@@ -1,10 +1,10 @@
 //-------------------------------------------------------------------------------------------------
 //
-//  File : bsp_io_def_H7B3LI.h
+//  File : bsp_io_def_F756_EVAL.h
 //
 //-------------------------------------------------------------------------------------------------
 //
-// Copyright(c) 2025 Alain Royer.
+// Copyright(c) 2026 Alain Royer.
 // Email: aroyer.qc@gmail.com
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software
@@ -73,7 +73,7 @@
     X_IO_CFG( IO_CFG_OUTPUT_PP_LS_DEF1,                 IO_MODE_OUTPUT,     IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_LOW,        1)                     \
     X_IO_CFG( IO_CFG_OUTPUT_PP_HS_DEF1,                 IO_MODE_OUTPUT,     IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_HIGH,       1)                     \
 /* I2Cx IO's CFG -----------------------------------------------------------------------------------------------------------------------------------------------------*/\
-    X_IO_CFG( IO_CFG_I2C4_PORT_AF4,                     IO_MODE_ALTERNATE,  IO_TYPE_PIN_OD,                            IO_SPEED_FREQ_MEDIUM,     IO_AF4_I2C4)           \
+    X_IO_CFG( IO_CFG_I2C1_PORT_AF4,                     IO_MODE_ALTERNATE,  IO_TYPE_PIN_OD,                            IO_SPEED_FREQ_MEDIUM,     IO_AF4_I2C1)           \
 /* LCD IO's CFG ------------------------------------------------------------------------------------------------------------------------------------------------------*/\
     X_IO_CFG( IO_CFG_LCD_PORT_AF14,                     IO_MODE_ALTERNATE,  IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_VERY_HIGH,  IO_AF14_LTDC)          \
 /* OCTOSPI IO's CFG --------------------------------------------------------------------------------------------------------------------------------------------------*/\
@@ -87,6 +87,9 @@
     X_IO_CFG( IO_CFG_SPI_AF5,                           IO_MODE_ALTERNATE,  IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_HIGH,       IO_AF5_SPI)            \
 /* UART IO's CFG -----------------------------------------------------------------------------------------------------------------------------------------------------*/\
     X_IO_CFG( IO_CFG_UART1_AF7,                         IO_MODE_ALTERNATE,  IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_LOW,        IO_AF7_USART1)         \
+/* USB IO's CFG ------------------------------------------------------------------------------------------------------------------------------------------------------*/\
+    X_IO_CFG( IO_CFG_USB_AF10,                          IO_MODE_ALTERNATE,  IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_VERY_HIGH,  IO_AF10_OTG_FS)        \
+    X_IO_CFG( IO_CFG_USB_AF12,                          IO_MODE_ALTERNATE,  IO_TYPE_PIN_PP,                            IO_SPEED_FREQ_VERY_HIGH,  IO_AF12_OTG_HS_FS)     \
 /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 //-------------------------------------------------------------------------------------------------
@@ -144,18 +147,18 @@
 //|                        |                       |  PG13 <-> TXD0             |
 //|                        |                       |  PG14 <-> TXD1             |
 //|------------------------------------------------------------------------------
-// GOOD
+
 #define ETH_PIN_ON_PORT_A       		(IO_PIN_1  | IO_PIN_2  | IO_PIN_7 | IO_PIN_8)
 #define ETH_PIN_ON_PORT_C       		(IO_PIN_1  | IO_PIN_4  | IO_PIN_5)
 #define ETH_PIN_ON_PORT_G       		(IO_PIN_2  | IO_PIN_6  | IO_PIN_7  | IO_PIN_11 | IO_PIN_13 | IO_PIN_14)
 
 //----------------------------
-// I2C4 grouping configuration
+// I2C1 grouping configuration
 
-#define I2C4_PIN_ON_PORT_D_ALT_4        (IO_PIN_12 | IO_PIN_13)
+#define I2C1_PIN_ON_PORT_D_ALT_4        (IO_PIN_8  | IO_PIN_9)
 
 //---------------------------
-// LCD grouping configuration  GOOD
+// LCD grouping configuration
 
 #define LCD_PIN_ON_PORT_I_ALT_14        (IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
 #define LCD_PIN_ON_PORT_J_ALT_14        (IO_PIN_ALL)
@@ -177,17 +180,25 @@
 #define SDMMC1_PIN_ON_PORT_D_ALT12      (IO_PIN_2)
 
 //-----------------------------
-// SDRAM grouping configuration
+// FMC grouping configuration
 
-#define FMC_PIN_ON_PORT_D_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_3  | IO_PIN_8  | IO_PIN_9  | IO_PIN_10  | IO_PIN_9  | IO_PIN_10 | IO_PIN_14 | IO_PIN_15)
-//#define FMC_PIN_ON_PORT_E_ALT_12      (IO_PIN_0  | IO_PIN_1  | IO_PIN_7  | IO_PIN_8  | IO_PIN_9  | IO_PIN_10 | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
-//#define FMC_PIN_ON_PORT_F_ALT_12      (IO_PIN_0  | IO_PIN_1  | IO_PIN_2  | IO_PIN_3  | IO_PIN_4  | IO_PIN_5  | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
-//#define FMC_PIN_ON_PORT_G_ALT_12      (IO_PIN_0  | IO_PIN_1  | IO_PIN_4  | IO_PIN_5  | IO_PIN_8  | IO_PIN_15)
-//#define FMC_PIN_ON_PORT_H_ALT_12      (IO_PIN_5  | IO_PIN_6  | IO_PIN_7)
+#define FMC_PIN_ON_PORT_D_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_4  | IO_PIN_5  | IO_PIN_6  | IO_PIN_7  | IO_PIN_8  | IO_PIN_9  | IO_PIN_10 | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
+#define FMC_PIN_ON_PORT_E_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_3  | IO_PIN_4  | IO_PIN_5  | IO_PIN_6  | IO_PIN_7  | IO_PIN_8  | IO_PIN_9  | IO_PIN_10 | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
+#define FMC_PIN_ON_PORT_F_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_2  | IO_PIN_3  | IO_PIN_4  | IO_PIN_5  | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
+#define FMC_PIN_ON_PORT_G_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_2  | IO_PIN_3  | IO_PIN_4  | IO_PIN_5  | IO_PIN_8  | IO_PIN_10 | IO_PIN_15)
+#define FMC_PIN_ON_PORT_H_ALT_12        (IO_PIN_2  | IO_PIN_3  | IO_PIN_5  | IO_PIN_8  | IO_PIN_9  | IO_PIN_10 | IO_PIN_11 | IO_PIN_12 | IO_PIN_13 | IO_PIN_14 | IO_PIN_15)
+#define FMC_PIN_ON_PORT_I_ALT_12        (IO_PIN_0  | IO_PIN_1  | IO_PIN_2  | IO_PIN_3  | IO_PIN_4  | IO_PIN_5  | IO_PIN_6  | IO_PIN_7  | IO_PIN_9  | IO_PIN_10)
 
 //----------------------------
 // UART grouping configuration
-#define UART1_PIN_ON_PORT_A_ALT_7       (IO_PIN_9 | IO_PIN_10)
+
+#define UART1_PIN_ON_PORT_A_ALT_7       (IO_PIN_9  | IO_PIN_10)
+
+//----------------------------
+// USB grouping configuration
+
+#define USB_PIN_ON_PORT_A_ALT_12        (IO_PIN_11 | IO_PIN_12)
+#define USB_PIN_ON_PORT_B_ALT_12        (IO_PIN_14 | IO_PIN_15)
 
 //-------------------------------------------------------------------------------------------------
 
@@ -199,7 +210,7 @@
     X_IO_GROUP( IO_ETH_ON_PORTC,            GPIOC,      ETH_PIN_ON_PORT_C,              IO_CFG_ETH_AF11)            \
     X_IO_GROUP( IO_ETH_ON_PORTG,            GPIOG,      ETH_PIN_ON_PORT_G,              IO_CFG_ETH_AF11)            \
 /* I2C4 ----------------------------------------------------------------------------------------------------------*/\
-    X_IO_GROUP( IO_I2C4_ON_PORT_D_ALT4,     GPIOD,      I2C4_PIN_ON_PORT_D_ALT_4,       IO_CFG_I2C4_PORT_AF4)       \
+    X_IO_GROUP( IO_I2C1_ON_PORT_D_ALT4,     GPIOD,      I2C1_PIN_ON_PORT_D_ALT_4,       IO_CFG_I2C1_PORT_AF4)       \
 /* LCD -----------------------------------------------------------------------------------------------------------*/\
     X_IO_GROUP( IO_LCD_ON_PORT_I,           GPIOI,      LCD_PIN_ON_PORT_I_ALT_14,       IO_CFG_LCD_PORT_AF14)       \
     X_IO_GROUP( IO_LCD_ON_PORT_J,           GPIOJ,      LCD_PIN_ON_PORT_J_ALT_14,       IO_CFG_LCD_PORT_AF14)       \
@@ -214,13 +225,17 @@
     X_IO_GROUP( IO_SDMMC1_ON_PORT_C_AF12,   GPIOC,      SDMMC1_PIN_ON_PORT_C_ALT12,     IO_CFG_SDMMC1_AF12)         \
     X_IO_GROUP( IO_SDMMC1_ON_PORT_D_AF12,   GPIOD,      SDMMC1_PIN_ON_PORT_D_ALT12,     IO_CFG_SDMMC1_AF12)         \
 /* SDRAM ---------------------------------------------------------------------------------------------------------*/\
-    X_IO_GROUP( IO_FMC_ON_PORT_D,         GPIOD,      SDRAM_PIN_ON_PORT_D_ALT_12,     IO_CFG_SDRAM_AF12)          \
-    X_IO_GROUP( IO_FMC_ON_PORT_E,         GPIOE,      SDRAM_PIN_ON_PORT_E_ALT_12,     IO_CFG_SDRAM_AF12)          \
-    X_IO_GROUP( IO_FMC_ON_PORT_F,         GPIOF,      SDRAM_PIN_ON_PORT_F_ALT_12,     IO_CFG_SDRAM_AF12)          \
-    X_IO_GROUP( IO_FMC_ON_PORT_G,         GPIOG,      SDRAM_PIN_ON_PORT_G_ALT_12,     IO_CFG_SDRAM_AF12)          \
-    X_IO_GROUP( IO_FMC_ON_PORT_H,         GPIOH,      SDRAM_PIN_ON_PORT_H_ALT_12,     IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_D,           GPIOD,      FMC_PIN_ON_PORT_D_ALT_12,       IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_E,           GPIOE,      FMC_PIN_ON_PORT_E_ALT_12,       IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_F,           GPIOF,      FMC_PIN_ON_PORT_F_ALT_12,       IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_G,           GPIOG,      FMC_PIN_ON_PORT_G_ALT_12,       IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_H,           GPIOH,      FMC_PIN_ON_PORT_H_ALT_12,       IO_CFG_SDRAM_AF12)          \
+    X_IO_GROUP( IO_FMC_ON_PORT_I,           GPIOI,      FMC_PIN_ON_PORT_I_ALT_12,       IO_CFG_SDRAM_AF12)          \
 /* UART ----------------------------------------------------------------------------------------------------------*/\
-    X_IO_GROUP( IO_UART1_ON_PORT_A,         GPIOB,      UART1_PIN_ON_PORT_A_ALT_7,      IO_CFG_UART1_AF7)           \
+    X_IO_GROUP( IO_UART1_ON_PORT_A,         GPIOA,      UART1_PIN_ON_PORT_A_ALT_7,      IO_CFG_UART1_AF7)           \
+/* USB -----------------------------------------------------------------------------------------------------------*/\
+    X_IO_GROUP( IO_USB_FS1_ON_PORT_A,       GPIOA,      USB_PIN_ON_PORT_A_ALT_12,       IO_CFG_USB_AF10)            \
+    X_IO_GROUP( IO_USB_FS2_ON_PORT_B,       GPIOB,      USB_PIN_ON_PORT_B_ALT_12,       IO_CFG_USB_AF12)            \
 /* ---------------------------------------------------------------------------------------------------------------*/
 
 
